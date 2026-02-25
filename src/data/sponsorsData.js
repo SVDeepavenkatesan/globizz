@@ -8,7 +8,7 @@ const Sponsors = () => {
         </h1>
 
         <p className="text-gray-300 mb-6">
-          Partner with GLOBIZZ 2026 and gain visibility among 1000+ management
+          Partner with GLOBIZZ and gain visibility among 1000+ management
           students and industry leaders.
         </p>
 

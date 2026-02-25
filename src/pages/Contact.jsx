@@ -8,11 +8,11 @@ const Contact = () => {
         </h1>
 
         <p className="text-gray-300 mb-4">
-          Email: globizz2026@yourcollege.edu
+          Email: svdeepa03@gmail.com
         </p>
 
         <p className="text-gray-300">
-          Phone: +91 XXXXX XXXXX
+          Phone: +91 75981 97925
         </p>
 
       </div>

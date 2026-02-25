@@ -15,7 +15,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold text-accent">
-          GLOBIZZ 2026
+          GLOBIZZ
         </Link>
 
         {/* Desktop Menu */}
@@ -25,6 +25,9 @@ const Navbar = () => {
           </NavLink>
           <NavLink to="/about" className={navLinkClass}>
             About
+          </NavLink>
+          <NavLink to="/gallery" className={navLinkClass}>
+            Gallery
           </NavLink>
           <NavLink to="/events" className={navLinkClass}>
             Events
@@ -68,6 +71,9 @@ const Navbar = () => {
           </NavLink>
           <NavLink to="/about" className={navLinkClass} onClick={() => setIsOpen(false)}>
             About
+          </NavLink>
+          <NavLink to="/gallery" className={navLinkClass} onClick={() => setIsOpen(false)}>
+            Events
           </NavLink>
           <NavLink to="/events" className={navLinkClass} onClick={() => setIsOpen(false)}>
             Events

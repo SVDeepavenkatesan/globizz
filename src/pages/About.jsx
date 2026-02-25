@@ -4,11 +4,11 @@ const About = () => {
       <div className="max-w-5xl mx-auto px-6">
 
         <h1 className="text-4xl font-bold mb-8">
-          About <span className="text-accent">GLOBIZZ 2026</span>
+          About <span className="text-accent">GLOBIZZ</span>
         </h1>
 
         <p className="text-gray-300 leading-relaxed mb-6">
-          GLOBIZZ 2026 is an Institution–Industry Interface Summit designed to
+          GLOBIZZ is an Institution–Industry Interface Summit designed to
           bridge the gap between academic excellence and corporate reality.
         </p>
 
