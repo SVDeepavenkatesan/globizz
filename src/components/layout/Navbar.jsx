@@ -38,6 +38,9 @@ const Navbar = () => {
           <NavLink to="/sponsors" className={navLinkClass}>
             Sponsors
           </NavLink>
+          <NavLink to="/volunteers" className={navLinkClass}>
+            Volunteers
+          </NavLink>
           <NavLink to="/contact" className={navLinkClass}>
             Contact
           </NavLink>
@@ -83,6 +86,9 @@ const Navbar = () => {
           </NavLink>
           <NavLink to="/sponsors" className={navLinkClass} onClick={() => setIsOpen(false)}>
             Sponsors
+          </NavLink>
+          <NavLink to="/Volunteers" className={navLinkClass} onClick={() => setIsOpen(false)}>
+            Volunteers
           </NavLink>
           <NavLink to="/contact" className={navLinkClass} onClick={() => setIsOpen(false)}>
             Contact

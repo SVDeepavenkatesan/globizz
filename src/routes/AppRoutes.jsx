@@ -8,6 +8,7 @@ import Sponsors from "../pages/Sponsors";
 import Register from "../pages/Register";
 import Gallery from "../pages/Gallery";
 import Contact from "../pages/Contact";
+import Volunteers from "../pages/Volunteers";
 
 const AppRoutes = () => {
   return (
@@ -23,6 +24,7 @@ const AppRoutes = () => {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/volunteers" element={<Volunteers />} />
         </Routes>
       </Layout>
     </BrowserRouter>
