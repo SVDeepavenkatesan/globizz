@@ -19,7 +19,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex space-x-8 font-harry large-text spaced-text">
           <NavLink to="/" className={navLinkClass}>
             Home
           </NavLink>

@@ -9,7 +9,7 @@ const Hero = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
         
-        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+        <h1 className="text-4xl md:text-6xl font-harry leading-tight tracking-wide">
           GLOBIZZ <span className="text-accent">2026</span>
         </h1>
 
@@ -23,7 +23,7 @@ const Hero = () => {
         <div className="mt-10 flex flex-col md:flex-row justify-center gap-6">
           
           <Link
-            to="/register"
+            to="/register" 
             className="bg-accent text-black px-8 py-3 rounded-xl font-semibold hover:scale-105 transition duration-300"
           >
             Register Now

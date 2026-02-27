@@ -10,6 +10,9 @@ export default {
         primary: "#0F172A",
         accent: "#D4AF37",
       },
+      fontFamily: {
+        harry: ["HarryP", "serif"],
+      },
     },
   },
   plugins: [],

@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "HarryP";
+  src: url("./assets/Fonts/Harry P.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.large-text {
+  font-size: 30px;
+}
+.spaced-text {
+  letter-spacing: 2px;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
