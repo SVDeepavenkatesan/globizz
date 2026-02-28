@@ -4,21 +4,18 @@ import heroBG from "../assets/images/heroBG.jpg";
 
 const Home = () => {
   return (
-    <div className="relative overflow-hidden">
-
-      <img
-        src={heroBG}
-        alt="Background"
-        className="absolute inset-0 w-full h-full object-cover opacity-20"
-      />
-
+    <div
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${heroBG})` }}
+    >
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-primary/80 to-black/95"></div>
 
+      {/* Content */}
       <div className="relative z-10">
         <Hero />
         <Highlights />
       </div>
-
     </div>
   );
 };
