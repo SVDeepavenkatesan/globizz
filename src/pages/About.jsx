@@ -1,27 +1,107 @@
+import aboutBG from "../assets/images/heroBG.jpg";
+
 const About = () => {
   return (
-    <section className="bg-primary text-white py-20 min-h-screen">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="relative bg-primary text-white min-h-screen overflow-hidden">
 
-        <h1 className="text-4xl font-bold mb-8">
-          About <span className="text-accent">GLOBIZZ</span>
-        </h1>
+      {/* Background Image */}
+      <img
+        src={aboutBG}
+        alt="Background"
+        className="absolute inset-0 w-full h-full object-cover opacity-10"
+      />
 
-        <p className="text-gray-300 leading-relaxed mb-6">
-          GLOBIZZ is an Institution–Industry Interface Summit designed to
-          bridge the gap between academic excellence and corporate reality.
-        </p>
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24">
 
-        <p className="text-gray-300 leading-relaxed mb-6">
-          The event brings together industry leaders, MBA students, policy thinkers,
-          and business strategists to engage in real-world discussions, case battles,
-          and strategic dialogues.
-        </p>
+        {/* Heading */}
+        <div className="text-center mb-20">
+          <h1 className="text-4xl md:text-6xl font-harry font-bold large-text spaced-text text-accent tracking-wider">
+            About GLOBIZZ
+          </h1>
+          <div className="w-24 h-1 bg-accent mx-auto mt-6 rounded-full"></div>
+        </div>
 
-        <p className="text-gray-300 leading-relaxed">
-          Our mission is simple: create a marketplace of ideas where future leaders
-          engage directly with the forces shaping global trade and business.
-        </p>
+        {/* Intro Section */}
+        <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
+
+          <div>
+            <h2 className="text-3xl font-harry font-bold large-text spaced-text text-accent mb-6">
+              Where Academia Meets Industry
+            </h2>
+
+            <p className="text-gray-300 leading-relaxed mb-6">
+              GLOBIZZ 2026 is an Institution–Industry Interface Summit designed
+              to bridge the gap between academic excellence and real-world
+              corporate dynamics. It brings together management students,
+              industry professionals, entrepreneurs, and thought leaders under
+              one transformative platform.
+            </p>
+
+            <p className="text-gray-400 leading-relaxed">
+              More than just an event, GLOBIZZ is a strategic ecosystem where
+              ideas ignite, collaborations emerge, and leadership potential is
+              refined.
+            </p>
+          </div>
+
+          {/* Highlight Box */}
+          <div className="bg-[#0B1120] border border-accent/30 p-10 rounded-2xl shadow-xl">
+            <h3 className="text-2xl font-harry font-bold large-text spaced-text text-accent mb-4">
+              What Makes It Unique?
+            </h3>
+            <ul className="space-y-4 text-gray-300">
+              <li>• Real-time industry interaction</li>
+              <li>• Strategic management simulations</li>
+              <li>• Creative brand challenges</li>
+              <li>• Social impact initiatives</li>
+              <li>• Leadership development platforms</li>
+            </ul>
+          </div>
+
+        </div>
+
+        {/* Vision / Mission / Impact */}
+        <div className="grid md:grid-cols-3 gap-10 mb-24">
+
+          <div className="bg-black border border-accent/20 p-8 rounded-xl hover:border-accent transition">
+            <h3 className="text-2xl font-harry font-bold large-text spaced-text text-accent mb-4">
+              Vision
+            </h3>
+            <p className="text-gray-400 leading-relaxed">
+              To cultivate globally competent management leaders equipped with
+              innovation, integrity, and strategic foresight.
+            </p>
+          </div>
+
+          <div className="bg-black border border-accent/20 p-8 rounded-xl hover:border-accent transition">
+            <h3 className="text-2xl font-harry font-bold large-text spaced-text text-accent mb-4">
+              Mission
+            </h3>
+            <p className="text-gray-400 leading-relaxed">
+              To provide a dynamic platform where knowledge converges with
+              practical exposure through immersive competitions and dialogues.
+            </p>
+          </div>
+
+          <div className="bg-black border border-accent/20 p-8 rounded-xl hover:border-accent transition">
+            <h3 className="text-2xl font-harry font-bold large-text spaced-text text-accent mb-4">
+              Impact
+            </h3>
+            <p className="text-gray-400 leading-relaxed">
+              Empowering students to think critically, act ethically, and lead
+              confidently in a rapidly evolving global business environment.
+            </p>
+          </div>
+
+        </div>
+
+        {/* Quote Section */}
+        <div className="text-center border-t border-accent/20 pt-16">
+          <p className="text-xl md:text-2xl text-gray-300 italic max-w-3xl mx-auto">
+            “GLOBIZZ is not just a summit — it is a movement shaping the
+            next generation of business leaders.”
+          </p>
+        </div>
 
       </div>
     </section>

@@ -1,107 +1,103 @@
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ibLogo from "../../assets/logos/IB.jpeg";
+import puLogo from "../../assets/logos/PU.jpg";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const targetDate = new Date(2026, 2, 11, 10, 0, 0).getTime();
+
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((distance / (1000 * 60)) % 60),
+        seconds: Math.floor((distance / 1000) % 60),
+      });
+    };
+
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const navLinkClass = ({ isActive }) =>
     isActive
-      ? "text-accent font-semibold"
-      : "text-gray-300 hover:text-accent transition";
+      ? "text-accent font-semibold font-harry large-text spaced-text"
+      : "text-gray-300 hover:text-accent transition font-harry large-text spaced-text";
 
   return (
     <nav className="bg-primary text-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-10xl mx-auto px-10 py-8 flex items-center justify-between">
 
-        {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-accent font-harry large-text spaced-text">
-          GLOBIZZ
-        </Link>
+        {/* LEFT SIDE (IB Logo + Title) */}
+        <div className="flex items-center gap-4">
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-8 font-harry large-text spaced-text">
-          <NavLink to="/" className={navLinkClass}>
-            HOME
-          </NavLink>
-          <NavLink to="/about" className={navLinkClass}>
-            ABOUT
-          </NavLink>
-          <NavLink to="/gallery" className={navLinkClass}>
-            GALLERY
-          </NavLink>
-          <NavLink to="/events" className={navLinkClass}>
-            EVENTS
-          </NavLink>
-          <NavLink to="/speakers" className={navLinkClass}>
-            SPEAKERS
-          </NavLink>
-          <NavLink to="/sponsors" className={navLinkClass}>
-            SPONSORS
-          </NavLink>
-          <NavLink to="/volunteers" className={navLinkClass}>
-            VOLUNTEERS
-          </NavLink>
-          <NavLink to="/contact" className={navLinkClass}>
-            CONTACT
-          </NavLink>
-        </div>
+          {/* Circular IB Logo */}
+          <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-accent shadow-lg bg-white flex items-center justify-center">
+            <img
+              src={ibLogo}
+              alt="IB Logo"
+              className="h-full w-full object-cover"
+            />
+          </div>
 
-        {/* Register Button */}
-        <div className="hidden md:block">
           <Link
-            to="/register"
-            className="bg-accent text-black px-5 py-2 rounded-lg font-semibold hover:scale-105 transition"
+            to="/"
+            className="text-2xl font-harry text-accent font-bold large-text spaced-text"
           >
-            Register
+            GLOBIZZ
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-accent text-2xl"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          ☰
-        </button>
+        {/* CENTER NAV */}
+        <div className="hidden md:flex space-x-8 items-center">
+          <NavLink to="/" className={navLinkClass}>Home</NavLink>
+          <NavLink to="/about" className={navLinkClass}>About</NavLink>
+          <NavLink to="/gallery" className={navLinkClass}>Gallery</NavLink>
+          <NavLink to="/events" className={navLinkClass}>Events</NavLink>
+          <NavLink to="/speakers" className={navLinkClass}>Speakers</NavLink>
+          <NavLink to="/sponsors" className={navLinkClass}>Sponsors</NavLink>
+          <NavLink to="/volunteers" className={navLinkClass}>Volunteers</NavLink>
+          <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
+
+          {/* Countdown Timer */}
+          <div className="bg-accent text-black px-4 py-2 rounded-lg font-semibold text-sm tracking-wide text-center">
+            Event Begins in <br />
+            {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+          </div>
+        </div>
+
+        {/* RIGHT SIDE (PU Logo) */}
+        <div className="hidden md:flex items-center">
+
+          {/* Circular PU Logo */}
+          <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-accent shadow-lg bg-white flex items-center justify-center">
+            <img
+              src={puLogo}
+              alt="PU Logo"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+        </div>
 
       </div>
-
-      {/* Mobile Dropdown */}
-      {isOpen && (
-        <div className="md:hidden bg-black px-6 pb-4 space-y-4">
-          <NavLink to="/" className={navLinkClass} onClick={() => setIsOpen(false)}>
-            Home
-          </NavLink>
-          <NavLink to="/about" className={navLinkClass} onClick={() => setIsOpen(false)}>
-            About
-          </NavLink>
-          <NavLink to="/gallery" className={navLinkClass} onClick={() => setIsOpen(false)}>
-            Events
-          </NavLink>
-          <NavLink to="/events" className={navLinkClass} onClick={() => setIsOpen(false)}>
-            Events
-          </NavLink>
-          <NavLink to="/speakers" className={navLinkClass} onClick={() => setIsOpen(false)}>
-            Speakers
-          </NavLink>
-          <NavLink to="/sponsors" className={navLinkClass} onClick={() => setIsOpen(false)}>
-            Sponsors
-          </NavLink>
-          <NavLink to="/Volunteers" className={navLinkClass} onClick={() => setIsOpen(false)}>
-            Volunteers
-          </NavLink>
-          <NavLink to="/contact" className={navLinkClass} onClick={() => setIsOpen(false)}>
-            Contact
-          </NavLink>
-          <Link
-            to="/register"
-            className="block bg-accent text-black px-5 py-2 rounded-lg font-semibold text-center"
-            onClick={() => setIsOpen(false)}
-          >
-            Register
-          </Link>
-        </div>
-      )}
     </nav>
   );
 };

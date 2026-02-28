@@ -1,15 +1,22 @@
 import { Link } from "react-router-dom";
+import eventLogo from "../../assets/logos/GLOBIZZ.png";
+import heroBG from "../../assets/images/heroBG.jpg";
 
 const Hero = () => {
   return (
-    <section className="bg-primary text-white min-h-screen flex items-center relative overflow-hidden">
-      
-      {/* Background Glow Effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-black to-primary opacity-95"></div>
-
+  <section className="relative min-h-screen flex items-center justify-center">      {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
-        
-        <h1 className="text-4xl md:text-6xl font-harry leading-tight tracking-wide">
+
+        {/* Event Logo Center */}
+        <div className="flex justify-center mb-10">
+          <img
+            src={eventLogo}
+            alt="GLOBIZZ Logo"
+            className="w-48 md:w-64 drop-shadow-[0_0_25px_rgba(212,175,55,0.6)]"
+          />
+        </div>
+
+        <h1 className="text-4xl md:text-6xl font-harry leading-tight tracking-wide text-white">
           GLOBIZZ <span className="text-accent">2026</span>
         </h1>
 
@@ -23,15 +30,15 @@ const Hero = () => {
         <div className="mt-10 flex flex-col md:flex-row justify-center gap-6">
           
           <Link
-            to="/register" 
+            to="/events"
             className="bg-accent text-black px-8 py-3 rounded-xl font-semibold hover:scale-105 transition duration-300"
           >
-            Register Now
+            Explore Events
           </Link>
 
           <Link
             to="/sponsors"
-            className="border border-accent px-8 py-3 rounded-xl font-semibold hover:bg-accent hover:text-black transition duration-300"
+            className="text-white border border-accent px-8 py-3 rounded-xl font-semibold hover:bg-accent hover:text-black transition duration-300"
           >
             Partner With Us
           </Link>

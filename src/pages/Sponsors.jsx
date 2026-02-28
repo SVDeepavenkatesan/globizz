@@ -1,4 +1,4 @@
-import sponsorPoster from "../assets/images/Posters/Call for Sponsors.jpeg";
+import sponsorPoster from "../../public/images/Posters/Call for Sponsors.jpeg";
 
 const Sponsors = () => {
   return (
