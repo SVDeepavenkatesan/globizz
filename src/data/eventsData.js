@@ -1,20 +1,22 @@
-export const eventCategories = {
-  management: [
-    "Goblet Of Bidders",
-    "Horcrux Hunt",
-    "Ravenclaw Conclave",
-    "Patronus Puzzle",
-    "Lumos Campaign",
-    "Runway Of Houses",
-    "Supreme Sorcerer",
-  ],
-  fun: [
-    "Cricket",
-    "Football",
-  ],
+export const eventTree = {
+  mystiquity: {
+    management: [
+      "GobletOfBidders",
+      "HorcruxHunt",
+      "RavenclawConclave",
+      "PatronusPuzzle",
+      "LumosCampaign",
+      "RunwayOfHouses",
+      "SupremeSorcerer",
+    ],
+    fun: [
+      "Cricket",
+      "Football",
+    ],
+  },
   noble: [
-    "Blood Donation",
+    "BloodDonation",
     "Marathon",
-    "Tree Plantation",
+    "TreePlantation",
   ],
 };

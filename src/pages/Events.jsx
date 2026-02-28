@@ -1,98 +1,159 @@
 import { useState } from "react";
-import { eventCategories } from "../data/eventsData";
-
-const categoryLabels = {
-  management: "Management Events",
-  fun: "Fun Events",
-  noble: "Noble Events",
-};
+import { eventTree } from "../data/eventsData";
 
 const Events = () => {
-  const [activeCategory, setActiveCategory] = useState(null);
+  const [openSection, setOpenSection] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
-  const openEvent = async (eventName) => {
-    const description = await fetch(
-      `/src/assets/eventDescription/${eventName}.txt`
-    ).then((res) => res.text());
+  const toggleSection = (key) => {
+    setOpenSection(openSection === key ? null : key);
+  };
 
-    setSelectedEvent({
-      name: eventName,
-      description,
-      poster: `/src/assets/images/Posters/${eventName}.jpeg`,
-    });
+  const openEvent = async (eventName) => {
+    try {
+      const response = await fetch(
+        `/eventDescription/${eventName}.txt`
+      );
+      const description = await response.text();
+
+      setSelectedEvent({
+        name: eventName,
+        description,
+        poster: `/images/Posters/${eventName}.jpeg`,
+      });
+    } catch (error) {
+      console.error("Error loading event:", error);
+    }
+  };
+
+  const closeModal = () => {
+    setSelectedEvent(null);
   };
 
   return (
     <section className="bg-primary text-white py-20 min-h-screen relative">
+      <div className="max-w-6xl mx-auto px-6">
 
-      <div className="max-w-6xl mx-auto px-6 text-center">
-
-        <h1 className="text-4xl font-harry mb-16 tracking-wider">
+        <h1 className="text-6xl font-harry  spaced-text text-center mb-20 tracking-wider">
           Our <span className="text-accent">Events</span>
         </h1>
 
-        {/* CATEGORY ROW */}
-        <div className="flex justify-center gap-10 mb-16">
+        {/* MYSTIQUITY PANEL */}
+        <div className="bg-[#0B1120] border border-accent/30 rounded-2xl p-10 mb-16 shadow-xl">
 
-          {Object.keys(eventCategories).map((key) => (
-            <div key={key} className="relative">
-              <button
-                onClick={() =>
-                  setActiveCategory(activeCategory === key ? null : key)
-                }
-                className="bg-accent text-black px-6 py-3 rounded-xl font-semibold hover:scale-105 transition"
-              >
-                {categoryLabels[key]}
-              </button>
+          <h2 className="text-3xl font-harry text-accent mb-10">
+            Mystiquity Events
+          </h2>
 
-              {/* Dropdown */}
-              {activeCategory === key && (
-                <div className="absolute mt-2 bg-black rounded-xl shadow-xl w-56 text-left z-40">
-                  {eventCategories[key].map((event) => (
-                    <div
-                      key={event}
-                      onClick={() => openEvent(event)}
-                      className="px-4 py-3 hover:bg-accent hover:text-black cursor-pointer transition"
-                    >
-                      {event}
-                    </div>
-                  ))}
+          {/* MANAGEMENT */}
+          <div className="mb-8">
+            <button
+              onClick={() => toggleSection("management")}
+              className="w-full text-left bg-black border border-accent px-6 py-4 rounded-xl hover:bg-accent hover:text-black transition"
+            >
+              Management Events
+            </button>
+
+            {openSection === "management" && (
+              <div className="mt-6 grid md:grid-cols-2 gap-4">
+                {eventTree.mystiquity.management.map((event) => (
+                  <div
+                    key={event}
+                    onClick={() => openEvent(event)}
+                    className="bg-black px-4 py-3 rounded-lg border border-accent/20 hover:border-accent transition cursor-pointer"
+                  >
+                    {event}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* FUN */}
+          <div>
+            <button
+              onClick={() => toggleSection("fun")}
+              className="w-full text-left bg-black border border-accent px-6 py-4 rounded-xl hover:bg-accent hover:text-black transition"
+            >
+              Fun Events
+            </button>
+
+            {openSection === "fun" && (
+              <div className="mt-6 grid md:grid-cols-2 gap-4">
+                {eventTree.mystiquity.fun.map((event) => (
+                  <div
+                    key={event}
+                    onClick={() => openEvent(event)}
+                    className="bg-black px-4 py-3 rounded-lg border border-accent/20 hover:border-accent transition cursor-pointer"
+                  >
+                    {event}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+        </div>
+
+        {/* NOBLE PANEL */}
+        <div className="bg-[#0B1120] border border-accent/30 rounded-2xl p-10 shadow-xl">
+
+          <h2 className="text-3xl font-harry text-accent mb-10">
+            Noble Events
+          </h2>
+
+          <button
+            onClick={() => toggleSection("noble")}
+            className="w-full text-left bg-black border border-accent px-6 py-4 rounded-xl hover:bg-accent hover:text-black transition"
+          >
+            Noble Events List
+          </button>
+
+          {openSection === "noble" && (
+            <div className="mt-6 grid md:grid-cols-2 gap-4">
+              {eventTree.noble.map((event) => (
+                <div
+                  key={event}
+                  onClick={() => openEvent(event)}
+                  className="bg-black px-4 py-3 rounded-lg border border-accent/20 hover:border-accent transition cursor-pointer"
+                >
+                  {event}
                 </div>
-              )}
+              ))}
             </div>
-          ))}
+          )}
         </div>
 
       </div>
 
-      {/* MODAL */}
+      {/* MODAL POPUP */}
       {selectedEvent && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50">
 
           <div className="relative bg-[#0F172A] text-white w-4/5 max-w-5xl rounded-2xl shadow-2xl flex border border-accent/40 animate-fadeIn">
 
-            {/* CLOSE BUTTON OUTSIDE */}
+            {/* CLOSE BUTTON */}
             <button
-              onClick={() => setSelectedEvent(null)}
-              className="absolute -top-6 -right-6 bg-accent text-black w-12 h-12 rounded-full text-2xl font-bold shadow-xl hover:rotate-90 transition duration-300"            >
+              onClick={closeModal}
+              className="absolute -top-6 -right-6 bg-accent text-black w-12 h-12 rounded-full text-2xl font-bold shadow-xl hover:rotate-90 transition duration-300"
+            >
               ✕
             </button>
 
-            {/* LEFT 1/3 POSTER */}
-            <div className="w-1/3 bg-black flex items-center justify-center p-4 border-r border-accent/20">
+            {/* POSTER 1/3 */}
+            <div className="w-1/3 bg-black flex items-center justify-center p-6 border-r border-accent/20">
               <img
                 src={selectedEvent.poster}
                 alt={selectedEvent.name}
-                className="h-full object-contain"
+                className="max-h-[80vh] object-contain"
               />
             </div>
 
-            {/* RIGHT 2/3 DESCRIPTION + REGISTER */}
-            <div className="w-2/3 p-8 flex flex-col justify-between">
+            {/* DESCRIPTION 2/3 */}
+            <div className="w-2/3 p-10 flex flex-col justify-between">
 
               <div>
-                <h2 className="text-2xl font-bold mb-6">
+                <h2 className="text-6xl font-harry text-accent mb-6">
                   {selectedEvent.name}
                 </h2>
 
@@ -101,8 +162,8 @@ const Events = () => {
                 </p>
               </div>
 
-              {/* Registration Section */}
-              <div className="mt-6">
+              {/* REGISTER */}
+              <div className="mt-10">
                 <a
                   href="/register"
                   className="bg-accent text-black px-6 py-3 rounded-lg font-semibold hover:scale-105 transition"
@@ -114,6 +175,7 @@ const Events = () => {
             </div>
 
           </div>
+
         </div>
       )}
 
