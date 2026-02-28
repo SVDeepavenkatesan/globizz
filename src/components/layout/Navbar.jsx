@@ -14,35 +14,35 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-accent">
+        <Link to="/" className="text-2xl font-bold text-accent font-harry large-text spaced-text">
           GLOBIZZ
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 font-harry large-text spaced-text">
           <NavLink to="/" className={navLinkClass}>
-            Home
+            HOME
           </NavLink>
           <NavLink to="/about" className={navLinkClass}>
-            About
+            ABOUT
           </NavLink>
           <NavLink to="/gallery" className={navLinkClass}>
-            Gallery
+            GALLERY
           </NavLink>
           <NavLink to="/events" className={navLinkClass}>
-            Events
+            EVENTS
           </NavLink>
           <NavLink to="/speakers" className={navLinkClass}>
-            Speakers
+            SPEAKERS
           </NavLink>
           <NavLink to="/sponsors" className={navLinkClass}>
-            Sponsors
+            SPONSORS
           </NavLink>
           <NavLink to="/volunteers" className={navLinkClass}>
-            Volunteers
+            VOLUNTEERS
           </NavLink>
           <NavLink to="/contact" className={navLinkClass}>
-            Contact
+            CONTACT
           </NavLink>
         </div>
 
