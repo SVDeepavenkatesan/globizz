@@ -24,7 +24,7 @@ const Gallery = () => {
     <section className="text-white py-20 min-h-screen">
       <div className="max-w-6xl mx-auto px-6 text-center">
 
-        <h1 className="text-4xl font-bold mb-12">
+        <h1 className="font-harry spaced-text text-8xl font-bold mb-12">
           Event <span className="text-accent">Gallery</span>
         </h1>
 
