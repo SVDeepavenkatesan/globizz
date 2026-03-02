@@ -99,7 +99,7 @@ const Events = () => {
   };
 
   return (
-    <section className="bg-primary text-white py-20 min-h-screen px-6">
+    <section className="text-white py-20 min-h-screen px-6">
       <div className="max-w-4xl mx-auto text-center">
 
         <h1 className="text-4xl sm:text-5xl md:text-8xl font-harry mb-16">
@@ -200,7 +200,7 @@ const Events = () => {
 
             <button
               onClick={closeModal}
-              className="absolute -top-6 -right-6 bg-accent text-black w-12 h-12 rounded-full text-2xl font-bold shadow-xl hover:rotate-90 transition duration-300"
+              className=" -right-6 bg-accent text-black w-12 h-12 rounded-full text-2xl font-bold shadow-xl hover:rotate-90 transition duration-300"
             >
               ✕
             </button>

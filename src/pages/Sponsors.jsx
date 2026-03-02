@@ -2,7 +2,7 @@ import sponsorPoster from "../assets/images/Posters/Call for Sponsors.jpeg";
 
 const Sponsors = () => {
   return (
-    <section className="bg-black text-white py-20 min-h-screen">
+    <section className="text-white py-20 min-h-screen">
       <div className="max-w-6xl mx-auto px-6 text-center">
 
         <h1 className="text-4xl font-harry mb-12 tracking-wider">
@@ -20,7 +20,7 @@ const Sponsors = () => {
             />
 
             {/* Hover Overlay */}
-            <div className="absolute inset-0 bg-black/80 
+            <div className="inset-0 bg-black/80 
                             opacity-0 group-hover:opacity-100 
                             transition-opacity duration-500 
                             flex items-center justify-center px-6">

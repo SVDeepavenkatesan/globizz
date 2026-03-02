@@ -5,14 +5,13 @@ import About from "../pages/About";
 import Events from "../pages/Events";
 import Speakers from "../pages/Speakers";
 import Sponsors from "../pages/Sponsors";
-import Register from "../pages/Register";
 import Gallery from "../pages/Gallery";
 import Contact from "../pages/Contact";
 import Volunteers from "../pages/Volunteers";
 
 const AppRoutes = () => {
   return (
-    <BrowserRouter>
+    <div className="md:top-112px"> 
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -20,14 +19,13 @@ const AppRoutes = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/speakers" element={<Speakers />} />
           <Route path="/sponsors" element={<Sponsors />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/volunteers" element={<Volunteers />} />
         </Routes>
       </Layout>
-    </BrowserRouter>
+      </div>
   );
 };
 

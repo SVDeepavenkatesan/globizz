@@ -21,7 +21,7 @@ const Gallery = () => {
   };
 
   return (
-    <section className="bg-black text-white py-20 min-h-screen">
+    <section className="text-white py-20 min-h-screen">
       <div className="max-w-6xl mx-auto px-6 text-center">
 
         <h1 className="text-4xl font-bold mb-12">
@@ -44,7 +44,7 @@ const Gallery = () => {
             />
 
             {/* Hover Overlay Caption */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent 
+            <div className="inset-0 bg-gradient-to-t from-black via-black/60 to-transparent 
                             opacity-0 group-hover:opacity-100 
                             transition-opacity duration-500 
                             flex items-center justify-center px-6">
@@ -58,7 +58,7 @@ const Gallery = () => {
           </div>
 
           {/* Control Buttons (Outside Video Frame) */}
-          <div className="absolute bottom-4 right-4 flex gap-4">
+          <div className="bottom-4 right-4 flex gap-4">
 
           <button
             onClick={togglePlay}

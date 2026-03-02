@@ -1,9 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ibLogo from "../../assets/logos/IB.jpeg";
 import puLogo from "../../assets/logos/PU.jpg";
 
 const Navbar = () => {
+  const navRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -12,6 +13,7 @@ const Navbar = () => {
     seconds: 0,
   });
 
+  // Countdown Timer
   useEffect(() => {
     const targetDate = new Date(2026, 2, 11, 10, 0, 0).getTime();
 
@@ -37,14 +39,33 @@ const Navbar = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // 🔥 Dynamic Navbar Height Sync
+  useEffect(() => {
+    const updateNavHeight = () => {
+      if (navRef.current) {
+        document.documentElement.style.setProperty(
+          "--navbar-height",
+          `${navRef.current.offsetHeight}px`
+        );
+      }
+    };
+
+    updateNavHeight();
+    window.addEventListener("resize", updateNavHeight);
+    return () => window.removeEventListener("resize", updateNavHeight);
+  }, []);
+
   const navLinkClass = ({ isActive }) =>
     isActive
-      ? "font-harry large-text  text-accent font-harry large-text spaced-text font-semibold"
-      : "font-harry large-text  text-gray-300 hover:text-accent transition font-harry large-text spaced-text";
+      ? "font-harry large-text text-accent spaced-text font-semibold"
+      : "font-harry large-text text-gray-300 hover:text-accent transition spaced-text";
 
   return (
     <>
-      <nav className="bg-primary text-white shadow-md flex-center sticky top-0 z-50">
+      <nav
+        ref={navRef}
+        className="text-white shadow-md relative z-50"
+      >
         <div className="max-w-7xl mx-auto px-2 md:px-1 py-3 flex items-center justify-between">
 
           {/* Left Logo + Title */}
@@ -72,35 +93,20 @@ const Navbar = () => {
             <div className="bg-accent text-black px-4 py-2 rounded-lg text-xs font-semibold">
               {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
             </div>
-
-
           </div>
 
-          {/* Right Side (Desktop + Mobile) */}
+          {/* Right Side */}
           <div className="flex items-center gap-4">
-
-            {/* Desktop PU Logo */}
-            <div className="hidden md:block">
-              <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-accent shadow-lg bg-white">
-                <img src={puLogo} alt="PU Logo" className="h-full w-full object-cover" />
-              </div>
+            <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-accent shadow-lg bg-white">
+              <img src={puLogo} alt="PU Logo" className="h-full w-full object-cover" />
             </div>
 
-            {/* Mobile PU Logo */}
-            <div className="md:hidden">
-              <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-accent shadow-lg bg-white">
-                <img src={puLogo} alt="PU Logo" className="h-full w-full object-cover" />
-              </div>
-            </div>
-
-            {/* Hamburger */}
             <button
               className="md:hidden text-accent text-3xl"
               onClick={() => setIsOpen(true)}
             >
               ☰
             </button>
-
           </div>
         </div>
       </nav>
@@ -113,7 +119,7 @@ const Navbar = () => {
         onClick={() => setIsOpen(false)}
       ></div>
 
-      {/* Sliding Sidebar */}
+      {/* Mobile Sidebar */}
       <div
         className={`fixed top-0 left-0 h-full w-72 bg-[#0F172A] z-50 transform transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
@@ -121,7 +127,6 @@ const Navbar = () => {
       >
         <div className="p-6 flex flex-col h-full">
 
-          {/* Close Button */}
           <button
             onClick={() => setIsOpen(false)}
             className="text-right text-accent text-2xl mb-8"
@@ -129,7 +134,6 @@ const Navbar = () => {
             ✕
           </button>
 
-          {/* Links */}
           <div className="flex flex-col space-y-6 text-lg">
             <NavLink to="/" className={navLinkClass} onClick={() => setIsOpen(false)}>Home</NavLink>
             <NavLink to="/about" className={navLinkClass} onClick={() => setIsOpen(false)}>About</NavLink>
@@ -141,11 +145,9 @@ const Navbar = () => {
             <NavLink to="/contact" className={navLinkClass} onClick={() => setIsOpen(false)}>Contact</NavLink>
           </div>
 
-          {/* Countdown at Bottom */}
           <div className="mt-auto bg-accent text-black p-4 rounded-lg text-center font-semibold">
             {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
           </div>
-
         </div>
       </div>
     </>

@@ -1,13 +1,10 @@
-import aboutBG from "../assets/images/heroBG.jpg";
-
 const About = () => {
   return (
     <section
       className="relative min-h-screen bg-cover bg-center bg-no-repeat text-white"
-      style={{ backgroundImage: `url(${aboutBG})` }}
     >
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/85"></div>
+      <div className="inset-0"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-24">
 
