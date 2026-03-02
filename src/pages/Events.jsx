@@ -129,38 +129,38 @@ const Events = () => {
 
       {/* Responsive Modal */}
       {selectedEvent && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 px-4">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50">
 
-          <div className="relative bg-[#0F172A] text-white w-full max-w-5xl rounded-2xl shadow-2xl flex flex-col md:flex-row border border-accent/40 animate-fadeIn max-h-[90vh] overflow-y-auto">
+          <div className="relative bg-[#0F172A] text-white w-4/5 max-w-5xl rounded-2xl shadow-2xl flex border border-accent/40 animate-fadeIn">
 
             <button
               onClick={closeModal}
-              className="absolute -top-4 -right-4 bg-accent text-black w-10 h-10 rounded-full text-xl font-bold shadow-xl"
+              className="absolute -top-6 -right-6 bg-accent text-black w-12 h-12 rounded-full text-2xl font-bold shadow-xl hover:rotate-90 transition duration-300"
             >
               ✕
             </button>
 
-            <div className="w-full md:w-1/3 bg-black flex items-center justify-center p-6">
+            <div className="w-3/4 bg-black flex items-center justify-center p-6 border-r border-accent/20">
               <img
                 src={selectedEvent.poster}
                 alt={selectedEvent.name}
-                className="max-h-[400px] md:max-h-[80vh] object-contain"
+                className="max-h-[80vh] object-contain"
               />
             </div>
 
-            <div className="w-full md:w-2/3 p-6 sm:p-10 flex flex-col justify-between">
+            <div className="w-2/3 p-10 flex flex-col justify-between ">
 
               <div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-harry text-accent mb-6 text-center md:text-left">
+                <h2 className="text-6xl font-harry text-accent mb-6 text-center">
                   {selectedEvent.name}
                 </h2>
 
-                <p className="text-gray-300 whitespace-pre-line leading-relaxed text-sm sm:text-base">
+                <p className="text-gray-300 whitespace-pre-line leading-relaxed text-justify">
                   {selectedEvent.description}
                 </p>
               </div>
 
-              <div className="mt-8 text-center md:text-left">
+              <div className="mt-10 text-center">
                 <a
                   href="/register"
                   className="bg-accent text-black px-6 py-3 rounded-lg font-semibold hover:scale-105 transition"
