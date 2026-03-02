@@ -15,11 +15,11 @@ const Hero = () => {
           />
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-harry tracking-wide">
+        <h1>
           GLOBIZZ <span className="text-accent">2026</span>
         </h1>
 
-        <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+        <p className=" text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
           Where <span className="text-accent font-semibold">Industry Leaders</span> meet
           <span className="text-accent font-semibold"> Management Minds</span>.
         </p>

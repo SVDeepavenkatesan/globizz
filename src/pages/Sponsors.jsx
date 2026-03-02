@@ -5,7 +5,7 @@ const Sponsors = () => {
     <section className="text-white py-20 min-h-screen">
       <div className="max-w-6xl mx-auto px-6 text-center">
 
-        <h1 className="text-4xl font-harry mb-12 tracking-wider">
+        <h1>
           Call for <span className="text-accent">Sponsors</span>
         </h1>
 

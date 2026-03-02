@@ -43,7 +43,7 @@ const Volunteers = () => {
     <section className="text-white py-20 min-h-screen">
       <div className="max-w-6xl mx-auto px-6">
 
-        <h1 className="text-4xl text-center mb-16 tracking-wider">
+        <h1>
           Meet Our <span className="text-accent">Volunteers</span>
         </h1>
 

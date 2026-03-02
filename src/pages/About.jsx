@@ -10,7 +10,7 @@ const About = () => {
 
         {/* Heading */}
         <div className="text-center mb-20">
-          <h1 className="text-4xl md:text-6xl font-harry font-bold large-text spaced-text text-accent tracking-wider">
+          <h1>
             About GLOBIZZ
           </h1>
           <div className="w-24 h-1 bg-accent mx-auto mt-6 rounded-full"></div>

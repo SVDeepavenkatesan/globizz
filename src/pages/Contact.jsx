@@ -3,7 +3,7 @@ const Contact = () => {
     <section className="text-white py-20 min-h-screen">
       <div className="max-w-4xl mx-auto px-6 text-center">
 
-        <h1 className="text-4xl font-bold mb-8">
+        <h1>
           Contact <span className="text-accent">Us</span>
         </h1>
 
