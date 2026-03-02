@@ -3,15 +3,15 @@ import eventLogo from "../../assets/logos/GLOBIZZ.png";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 text-white text-center">
+    <section className="min-h-screen flex items-center justify-center px-2 py-5 text-white text-center">
 
       <div className="max-w-5xl w-full">
 
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center ">
           <img
             src={eventLogo}
             alt="GLOBIZZ Logo"
-            className="w-32 sm:w-40 md:w-56 lg:w-64 drop-shadow-lg"
+            className="w-32 sm:w-40 md:w-56 mb-5 lg:w-64 drop-shadow-lg"
           />
         </div>
 
@@ -39,7 +39,11 @@ const Hero = () => {
             Partner With Us
           </Link>
         </div>
-
+        <div className="mt-20">
+          <h1>
+            Event Dates: <span className="text-accent"> March 11, 12 & 13, 2026 </span>
+          </h1>
+        </div>
       </div>
     </section>
   );
