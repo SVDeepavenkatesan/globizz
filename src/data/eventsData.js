@@ -12,12 +12,13 @@ export const eventTree = {
     fun: [
       "Cricket",
       "Football",
+      "Flash Mob",
     ],
   },
   noble: [
     "Blood Donation",
     "Marathon Run",
     "Tree Plantation",
-    "Flash Mob",
+
   ],
 };
