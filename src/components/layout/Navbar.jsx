@@ -39,8 +39,8 @@ const Navbar = () => {
 
   const navLinkClass = ({ isActive }) =>
     isActive
-      ? "text-accent font-harry large-text spaced-text font-semibold"
-      : "text-gray-300 hover:text-accent transition font-harry large-text spaced-text";
+      ? "font-harry large-text  text-accent font-harry large-text spaced-text font-semibold"
+      : "font-harry large-text  text-gray-300 hover:text-accent transition font-harry large-text spaced-text";
 
   return (
     <>
@@ -59,7 +59,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="font-harry large-text hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-6">
             <NavLink to="/" className={navLinkClass}>Home</NavLink>
             <NavLink to="/about" className={navLinkClass}>About</NavLink>
             <NavLink to="/gallery" className={navLinkClass}>Gallery</NavLink>
