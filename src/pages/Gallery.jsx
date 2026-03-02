@@ -68,6 +68,7 @@ const Gallery = () => {
               index={index}
               activeAudioIndex={activeAudioIndex}
               setActiveAudioIndex={setActiveAudioIndex}
+              fullscreenItem={fullscreenItem}
               setFullscreenItem={setFullscreenItem}
             />
           ))}
@@ -75,13 +76,11 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* FULLSCREEN MODAL */}
       {fullscreenItem && (
         <FullscreenModal
           item={fullscreenItem}
-          activeAudioIndex={activeAudioIndex}
+          setFullscreenItem={setFullscreenItem}
           setActiveAudioIndex={setActiveAudioIndex}
-          onClose={() => setFullscreenItem(null)}
         />
       )}
     </section>
@@ -93,11 +92,14 @@ const GalleryCard = ({
   index,
   activeAudioIndex,
   setActiveAudioIndex,
+  fullscreenItem,
   setFullscreenItem,
 }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
-  const isMuted = activeAudioIndex !== index;
+
+  const isMuted =
+    fullscreenItem ? true : activeAudioIndex !== index;
 
   useEffect(() => {
     if (videoRef.current) {
@@ -105,14 +107,31 @@ const GalleryCard = ({
     }
   }, [isMuted]);
 
+  // 🔥 Resume grid when fullscreen closes
+  useEffect(() => {
+    if (!fullscreenItem && videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+      setIsPlaying(true);
+    }
+  }, [fullscreenItem]);
+
   const togglePlay = () => {
     if (!videoRef.current) return;
-    isPlaying ? videoRef.current.pause() : videoRef.current.play();
+
+    if (isPlaying) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+
     setIsPlaying(!isPlaying);
   };
 
   const toggleMute = () => {
-    isMuted ? setActiveAudioIndex(index) : setActiveAudioIndex(null);
+    isMuted
+      ? setActiveAudioIndex(index)
+      : setActiveAudioIndex(null);
   };
 
   return (
@@ -123,7 +142,6 @@ const GalleryCard = ({
           ref={videoRef}
           src={item.src}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          muted
           loop
           autoPlay
           playsInline
@@ -135,18 +153,34 @@ const GalleryCard = ({
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       )}
+      {/* Hover Overlay */}
+      <div
+        className="absolute inset-0 
+                  bg-black/80 from-black/80 via-black/60 to-transparent
+                  opacity-0 group-hover:opacity-100
+                  transition-opacity duration-500
+                  flex flex-col items-center justify-center
+                  text-center px-6"
+      >
 
-      {/* Hover Info */}
-      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center text-center px-6">
-        <div>
-          <h2 className="text-2xl font-harry text-accent mb-2">
+        <div className="transform translate-y-4 group-hover:translate-y-0 transition duration-500">
+
+          <h2 className="text-2xl font-harry text-accent mb-3">
             {item.eventName}
           </h2>
-          <p>{item.shortDescription}</p>
+
+          <p className="text-gray-200 mb-3">
+            {item.shortDescription}
+          </p>
+
+          <p className="text-sm text-accent">
+            {item.date} | {item.time}
+            <br />
+            {item.location}
+          </p>
+
         </div>
       </div>
-
-      {/* Controls */}
       <div className="absolute bottom-4 right-4 flex gap-3">
 
         {item.type === "video" && (
@@ -168,7 +202,14 @@ const GalleryCard = ({
         )}
 
         <button
-          onClick={() => setFullscreenItem({ ...item, index })}
+          onClick={() => {
+            if (videoRef.current) {
+              videoRef.current.pause();
+              videoRef.current.muted = true;
+            }
+            setActiveAudioIndex(null);
+            setFullscreenItem({ ...item, index });
+          }}
           className="bg-black text-white p-3 rounded-full"
         >
           <Maximize size={18} />
@@ -181,53 +222,83 @@ const GalleryCard = ({
 
 const FullscreenModal = ({
   item,
-  activeAudioIndex,
+  setFullscreenItem,
   setActiveAudioIndex,
-  onClose,
 }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
-  const isMuted = activeAudioIndex !== item.index;
+  const [isMuted, setIsMuted] = useState(false);
 
+  // 🔥 ESC to close
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
+
+  // 🔥 Autoplay with sound
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.muted = isMuted;
+      videoRef.current.muted = false;
+      videoRef.current.play().catch(() => {});
+      setActiveAudioIndex(item.index);
     }
-  }, [isMuted]);
+  }, []);
+
+  const closeModal = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.muted = true;
+    }
+    setActiveAudioIndex(null);
+    setFullscreenItem(null);
+  };
 
   const togglePlay = () => {
     if (!videoRef.current) return;
-    isPlaying ? videoRef.current.pause() : videoRef.current.play();
+
+    if (isPlaying) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+
     setIsPlaying(!isPlaying);
   };
 
   const toggleMute = () => {
-    isMuted ? setActiveAudioIndex(item.index) : setActiveAudioIndex(null);
+    if (!videoRef.current) return;
+
+    const newMuted = !isMuted;
+    videoRef.current.muted = newMuted;
+    setIsMuted(newMuted);
   };
 
   return (
-    <div className="fixed inset-0 backdrop-blur-md flex items-center justify-center z-50 p-6">
+    <div className="fixed inset-0 backdrop-blur-md flex items-center justify-center z-50 p-6 animate-fadeIn">
 
       <div className="relative w-full max-w-5xl max-h-[90vh]">
 
-        {/* Close Button OUTSIDE */}
         <button
-          onClick={onClose}
+          onClick={closeModal}
           className="absolute -top-12 right-0 bg-accent text-black w-12 h-12 rounded-full text-2xl font-bold"
         >
           ✕
         </button>
 
-        <div className="bg-black rounded-2xl overflow-hidden">
+        <div className="bg-black rounded-2xl overflow-hidden relative">
 
           {item.type === "video" ? (
             <video
               ref={videoRef}
               src={item.src}
               className="w-full max-h-[80vh] object-contain"
-              autoPlay
               loop
-              muted
+              playsInline
             />
           ) : (
             <img
@@ -237,7 +308,6 @@ const FullscreenModal = ({
             />
           )}
 
-          {/* Controls in popup */}
           {item.type === "video" && (
             <div className="absolute bottom-6 right-6 flex gap-4">
 
