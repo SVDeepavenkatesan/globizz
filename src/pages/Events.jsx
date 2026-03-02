@@ -200,7 +200,7 @@ const Events = () => {
 
             <button
               onClick={closeModal}
-              className=" -right-6 bg-accent text-black w-12 h-12 rounded-full text-2xl font-bold shadow-xl hover:rotate-90 transition duration-300"
+              className="absolute -top-6 -right-6 bg-accent text-black w-12 h-12 rounded-full text-2xl font-bold shadow-xl hover:rotate-90 transition duration-300"
             >
               ✕
             </button>

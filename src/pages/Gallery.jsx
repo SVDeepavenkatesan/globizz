@@ -44,7 +44,7 @@ const Gallery = () => {
             />
 
             {/* Hover Overlay Caption */}
-            <div className="inset-0 bg-gradient-to-t from-black via-black/60 to-transparent 
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent 
                             opacity-0 group-hover:opacity-100 
                             transition-opacity duration-500 
                             flex items-center justify-center px-6">
@@ -58,23 +58,24 @@ const Gallery = () => {
           </div>
 
           {/* Control Buttons (Outside Video Frame) */}
-          <div className="bottom-4 right-4 flex gap-4">
+         {/* Control Buttons */}
+          <div className="absolute bottom-4 right-4 flex gap-4">
 
-          <button
-            onClick={togglePlay}
-            className="bg-accent text-black p-3 rounded-full shadow-lg hover:scale-110 transition"
-          >
-            {isPlaying ? <Pause size={20} /> : <Play size={20} />}
-          </button>
+            <button
+              onClick={togglePlay}
+              className="bg-accent text-black p-3 rounded-full shadow-lg hover:scale-110 transition"
+            >
+              {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+            </button>
 
-          <button
-            onClick={toggleMute}
-            className="bg-white text-black p-3 rounded-full shadow-lg hover:scale-110 transition"
-          >
-            {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-          </button>
+            <button
+              onClick={toggleMute}
+              className="bg-white text-black p-3 rounded-full shadow-lg hover:scale-110 transition"
+            >
+              {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+            </button>
 
-        </div>
+          </div>
 
         </div>
 
