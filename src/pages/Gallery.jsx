@@ -60,7 +60,6 @@ const Gallery = () => {
         </h1>
 
         <div className="grid md:grid-cols-2 gap-10 mt-16">
-
           {items.map((item, index) => (
             <GalleryCard
               key={index}
@@ -72,7 +71,6 @@ const Gallery = () => {
               setFullscreenItem={setFullscreenItem}
             />
           ))}
-
         </div>
       </div>
 
@@ -80,7 +78,6 @@ const Gallery = () => {
         <FullscreenModal
           item={fullscreenItem}
           setFullscreenItem={setFullscreenItem}
-          setActiveAudioIndex={setActiveAudioIndex}
         />
       )}
     </section>
@@ -107,7 +104,6 @@ const GalleryCard = ({
     }
   }, [isMuted]);
 
-  // 🔥 Resume grid when fullscreen closes
   useEffect(() => {
     if (!fullscreenItem && videoRef.current) {
       videoRef.current.muted = true;
@@ -137,11 +133,12 @@ const GalleryCard = ({
   return (
     <div className="relative group rounded-2xl overflow-hidden shadow-2xl">
 
+      {/* Media */}
       {item.type === "video" ? (
         <video
           ref={videoRef}
           src={item.src}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover"
           loop
           autoPlay
           playsInline
@@ -150,53 +147,55 @@ const GalleryCard = ({
         <img
           src={item.src}
           alt={item.eventName}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover"
         />
       )}
+
       {/* Hover Overlay */}
       <div
-        className="absolute inset-0 
-                  bg-black/80 from-black/80 via-black/60 to-transparent
-                  opacity-0 group-hover:opacity-100
-                  transition-opacity duration-500
-                  flex flex-col items-center justify-center
-                  text-center px-6"
+        className="absolute inset-0 z-10
+                   bg-black/80 from-black/90 via-black/70 to-transparent
+                   opacity-0 group-hover:opacity-100
+                   transition-opacity duration-500
+                   flex items-center justify-center
+                   px-4 sm:px-6 text-center"
       >
+        <div className="sm:max-h-[80%] sm:overflow-y-auto">
 
-        <div className="transform translate-y-4 group-hover:translate-y-0 transition duration-500">
-
-          <h2 className="text-2xl font-harry text-accent mb-3">
+          <h2 className="text-sm sm:text-l font-harry text-bold text-accent">
             {item.eventName}
           </h2>
 
-          <p className="text-gray-200 mb-3">
+          <p className="text-xs sm:text-sm text-gray-200">
             {item.shortDescription}
           </p>
 
-          <p className="text-sm text-accent">
-            {item.date} | {item.time}
+          <p className="text-xs sm:text-sm text-accent">
+            {item.date} {item.time && `| ${item.time}`}
             <br />
             {item.location}
           </p>
 
         </div>
       </div>
-      <div className="absolute bottom-4 right-4 flex gap-3">
+
+      {/* Controls */}
+      <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-20 flex gap-2 sm:gap-3">
 
         {item.type === "video" && (
           <>
             <button
               onClick={togglePlay}
-              className="bg-accent text-black p-3 rounded-full"
+              className="bg-accent text-black p-2 sm:p-3 rounded-full"
             >
-              {isPlaying ? <Pause size={18} /> : <Play size={18} />}
+              {isPlaying ? <Pause size={16} /> : <Play size={16} />}
             </button>
 
             <button
               onClick={toggleMute}
-              className="bg-white text-black p-3 rounded-full"
+              className="bg-white text-black p-2 sm:p-3 rounded-full"
             >
-              {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+              {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
             </button>
           </>
         )}
@@ -207,12 +206,11 @@ const GalleryCard = ({
               videoRef.current.pause();
               videoRef.current.muted = true;
             }
-            setActiveAudioIndex(null);
             setFullscreenItem({ ...item, index });
           }}
-          className="bg-black text-white p-3 rounded-full"
+          className="bg-black text-white p-2 sm:p-3 rounded-full"
         >
-          <Maximize size={18} />
+          <Maximize size={16} />
         </button>
 
       </div>
@@ -220,41 +218,31 @@ const GalleryCard = ({
   );
 };
 
-const FullscreenModal = ({
-  item,
-  setFullscreenItem,
-  setActiveAudioIndex,
-}) => {
+const FullscreenModal = ({ item, setFullscreenItem }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
 
-  // 🔥 ESC to close
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") {
-        closeModal();
-      }
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, []);
-
-  // 🔥 Autoplay with sound
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.muted = false;
       videoRef.current.play().catch(() => {});
-      setActiveAudioIndex(item.index);
     }
+
+    const esc = (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    window.addEventListener("keydown", esc);
+    return () => window.removeEventListener("keydown", esc);
   }, []);
 
   const closeModal = () => {
     if (videoRef.current) {
       videoRef.current.pause();
-      videoRef.current.muted = true;
     }
-    setActiveAudioIndex(null);
     setFullscreenItem(null);
   };
 
@@ -279,7 +267,7 @@ const FullscreenModal = ({
   };
 
   return (
-    <div className="fixed inset-0 backdrop-blur-md flex items-center justify-center z-50 p-6 animate-fadeIn">
+    <div className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-50 p-6">
 
       <div className="relative w-full max-w-5xl max-h-[90vh]">
 
@@ -309,24 +297,25 @@ const FullscreenModal = ({
           )}
 
           {item.type === "video" && (
-            <div className="absolute bottom-6 right-6 flex gap-4">
+            <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 flex gap-3 sm:gap-4">
 
               <button
                 onClick={togglePlay}
-                className="bg-accent text-black p-4 rounded-full"
+                className="bg-accent text-black p-3 sm:p-4 rounded-full"
               >
-                {isPlaying ? <Pause size={22} /> : <Play size={22} />}
+                {isPlaying ? <Pause size={18} /> : <Play size={18} />}
               </button>
 
               <button
                 onClick={toggleMute}
-                className="bg-white text-black p-4 rounded-full"
+                className="bg-white text-black p-3 sm:p-4 rounded-full"
               >
-                {isMuted ? <VolumeX size={22} /> : <Volume2 size={22} />}
+                {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
               </button>
 
             </div>
           )}
+
         </div>
       </div>
     </div>
