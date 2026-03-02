@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event>
+    <meta>
+        <name>GLOBIZZ Football 2026</name>
+        <category>Fun</category>
+        <hasRegistration>false</hasRegistration>
+        <registrationLink> </registrationLink>
+    </meta>
+
+    <content>
+        <shortDescription>
+            An exciting football tournament where teams compete in the GLOBIZZ Cup 2026 at Pondicherry University.
+        </shortDescription>
+
+        <description>
+            GLOBIZZ Cup 2026 brings together the spirit of competition,
+            teamwork, and sportsmanship in an action-packed football
+            tournament as part of GLOBIZZ’26.
+
+            Teams will compete for victory in a thrilling showdown where
+            business meets the beautiful game. With limited slots available,
+            participants are encouraged to secure their spot early and
+            showcase their football skills on the field.
+
+	    Contacts for Registration:
+	    Adeeb: +91 8848897917
+ 	    Jishan: +91 7907735506
+
+	    Registration Fee: ₹2000
+
+        </description>
+
+        <rules>
+            <rule>Only 12 team slots available</rule>
+            <rule>Teams must complete registration before the event</rule>
+            <rule>Registration fee: ₹2000 per team</rule>
+            <rule>Participants must follow tournament rules and fair play guidelines</rule>
+            <rule>Contact organizers for registration and event details</rule>
+        </rules>
+
+        <date>7–8 March 2026</date>
+        <time>Not specified</time>
+        <Venue>Pondicherry University</Venue>
+
+    </content>
+</event>
+

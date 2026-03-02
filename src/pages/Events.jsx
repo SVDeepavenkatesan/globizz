@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { eventTree } from "../data/eventsData";
 
+
 const Events = () => {
   const [openSection, setOpenSection] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -9,20 +10,84 @@ const Events = () => {
     setOpenSection(openSection === key ? null : key);
   };
 
+  // Helper to safely retrieve textContent from XML by trying several case variations
+  const getText = (xmlDoc, nameVariants = []) => {
+    for (const name of nameVariants) {
+      const el = xmlDoc.getElementsByTagName(name)[0];
+      if (el && el.textContent !== null) {
+        return el.textContent.trim();
+      }
+    }
+    return null;
+  };
+
   const openEvent = async (eventName) => {
     try {
-      const descriptionModule = await import(
-        `../assets/eventDescription/${eventName}.txt?raw`
+      // Import XML as raw text and poster image from src/assets
+      const xmlModule = await import(
+        `../assets/eventDescription/${eventName}.xml?raw`
       );
-
       const posterModule = await import(
         `../assets/images/Posters/${eventName}.jpeg`
       );
 
+      // Parse XML
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xmlModule.default, "text/xml");
+
+      // meta
+      const name =
+        getText(xmlDoc, ["name", "Name"]) || eventName || "Unnamed Event";
+      const category =
+        getText(xmlDoc, ["category", "Category"]) || "Unspecified";
+      const hasRegistrationRaw =
+        getText(xmlDoc, ["hasRegistration", "hasregistration", "HasRegistration"]) ||
+        "false";
+      const hasRegistration = String(hasRegistrationRaw).toLowerCase() === "true";
+      const registrationLink =
+        getText(xmlDoc, ["registrationLink", "registrationlink", "RegistrationLink"]) ||
+        "/register";
+
+      // content
+      const shortDescription =
+        getText(xmlDoc, ["shortDescription", "shortdescription", "ShortDescription"]) || "";
+      const description =
+        getText(xmlDoc, ["description", "Description"]) || "";
+      const date = getText(xmlDoc, ["date", "Date"]) || "";
+      const time = getText(xmlDoc, ["time", "Time"]) || "";
+      // Venue in skeleton is capitalized — try both
+      const venue = getText(xmlDoc, ["Venue", "venue", "VENUE"]) || "";
+
+      // rules (optional) — collect all <rule> under any parent
+      const ruleNodes = xmlDoc.getElementsByTagName("rule");
+      const rules = [];
+      for (let i = 0; i < ruleNodes.length; i++) {
+        const txt = ruleNodes[i].textContent;
+        if (txt && txt.trim()) rules.push(txt.trim());
+      }
+
+      // Fallback: some XMLs may wrap rules differently; also try <rules><rule>...
+      const altRuleParent = xmlDoc.getElementsByTagName("rules")[0];
+      if (altRuleParent && rules.length === 0) {
+        const altRules = altRuleParent.getElementsByTagName("rule");
+        for (let i = 0; i < altRules.length; i++) {
+          const txt = altRules[i].textContent;
+          if (txt && txt.trim()) rules.push(txt.trim());
+        }
+      }
+
       setSelectedEvent({
-        name: eventName,
-        description: descriptionModule.default,
+        name,
+        category,
         poster: posterModule.default,
+        shortDescription,
+        description,
+        rules,
+        date,
+        time,
+        venue,
+        hasRegistration,
+        registrationLink,
       });
     } catch (error) {
       console.error("Error loading event:", error);
@@ -37,14 +102,14 @@ const Events = () => {
     <section className="bg-primary text-white py-20 min-h-screen px-6">
       <div className="max-w-4xl mx-auto text-center">
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-harry mb-16">
+        <h1 className="text-4xl sm:text-5xl md:text-8xl font-harry mb-16">
           Our <span className="text-accent">Events</span>
         </h1>
 
         {/* Mystiquity */}
         <div className="bg-[#0B1120] border border-accent/30 rounded-2xl p-6 sm:p-8 mb-12 shadow-xl">
 
-          <h2 className="text-2xl sm:text-3xl font-harry text-accent mb-8">
+          <h2 className="text-2xl sm:text-5xl font-harry text-accent mb-8">
             Mystiquity Events
           </h2>
 
@@ -98,7 +163,7 @@ const Events = () => {
         {/* Noble */}
         <div className="bg-[#0B1120] border border-accent/30 rounded-2xl p-6 sm:p-8 shadow-xl">
 
-          <h2 className="text-2xl sm:text-3xl font-harry text-accent mb-8">
+          <h2 className="text-2xl sm:text-6xl font-harry text-accent mb-8">
             Noble Events
           </h2>
 
@@ -129,9 +194,9 @@ const Events = () => {
 
       {/* Responsive Modal */}
       {selectedEvent && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4 overflow-y-auto">
 
-          <div className="relative bg-[#0F172A] text-white w-4/5 max-w-5xl rounded-2xl shadow-2xl flex border border-accent/40 animate-fadeIn">
+          <div className="relative bg-[#0F172A] text-white w-full max-w-5xl max-h-[90vh] rounded-2xl shadow-2xl flex border border-accent/40 animate-fadeIn">
 
             <button
               onClick={closeModal}
@@ -148,25 +213,53 @@ const Events = () => {
               />
             </div>
 
-            <div className="w-2/3 p-10 flex flex-col justify-between ">
+            <div className="w-2/3 p-10 flex flex-col justify-between overflow-y-auto">
 
               <div>
                 <h2 className="text-6xl font-harry text-accent mb-6 text-center">
                   {selectedEvent.name}
                 </h2>
 
+                {/* Short description */}
+                {selectedEvent.shortDescription && (
+                  <p className="text-gray-300 whitespace-pre-line leading-relaxed mb-4 text-justify">
+                    {selectedEvent.shortDescription}
+                  </p>
+                )}
+
+                {/* Date / Time / Venue */}
+                <p className="text-gray-400 mb-4">
+                  {selectedEvent.date ? (<span><strong>Date:</strong> {selectedEvent.date}</span>) : null}
+                  {selectedEvent.time ? (<span> &nbsp; <strong>Time:</strong> {selectedEvent.time}</span>) : null}
+                  {selectedEvent.venue ? (<span> &nbsp; <strong>Venue:</strong> {selectedEvent.venue}</span>) : null}
+                </p>
+
                 <p className="text-gray-300 whitespace-pre-line leading-relaxed text-justify">
                   {selectedEvent.description}
                 </p>
+
+                {/* Rules (if present) */}
+                {selectedEvent.rules && selectedEvent.rules.length > 0 && (
+                  <div className="mt-4 text-left">
+                    <h3 className="text-accent font-harry text-5xl spaced-text mb-2">Rules</h3>
+                    <ul className="list-disc text-gray-300 text-justify">
+                      {selectedEvent.rules.map((r, i) => (
+                        <li key={i}>{r}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
               <div className="mt-10 text-center">
-                <a
-                  href="/register"
-                  className="bg-accent text-black px-6 py-3 rounded-lg font-semibold hover:scale-105 transition"
-                >
-                  Register Now
-                </a>
+                {selectedEvent.hasRegistration ? (
+                  <a
+                    href={selectedEvent.registrationLink || "/register"}
+                    className="bg-accent text-black px-6 py-3 rounded-lg font-semibold hover:scale-105 transition"
+                  >
+                    Register Now
+                  </a>
+                ) : null}
               </div>
 
             </div>

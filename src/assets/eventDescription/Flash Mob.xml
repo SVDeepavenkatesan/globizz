@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event>
+    <meta>
+        <name>Flash Mob</name>
+        <category>Cultural</category>
+        <hasRegistration>false</hasRegistration>
+        <registrationLink> </registrationLink>
+    </meta>
+
+    <content>
+        <shortDescription>
+            A lively flash mob performance celebrating creativity, music, and teamwork as part of GLOBIZZ’26.
+        </shortDescription>
+
+        <description>
+            As part of the annual institute industry interface meet GLOBIZZ’26,
+            the Department of International Business, Pondicherry University,
+            is hosting an energetic Flash Mob event.
+
+            This exciting performance will bring together students for a lively
+            and vibrant celebration of creativity, music, and teamwork. The
+            event aims to build enthusiasm on campus and showcase student
+            talent through a dynamic group performance.
+        </description>
+
+        <rules>
+            <rule>Strictly No Rules</rule>
+        </rules>
+
+        <date>19 February 2026</date>
+        <time>5:00 PM</time>
+        <Venue>Library Junction, near I ❤️ PU, Pondicherry University</Venue>
+
+    </content>
+</event>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event>
+    <meta>
+        <name>GLOBIZZ’26 Marathon Run</name>
+        <category>Noble</category>
+        <hasRegistration>false</hasRegistration>
+        <registrationLink> </registrationLink>
+    </meta>
+
+    <content>
+        <shortDescription>
+            A marathon run promoting health, fitness, and social awareness under the theme “Run for a Reason.”
+        </shortDescription>
+
+        <description>
+            The Department of International Business, Pondicherry University,
+            presents the GLOBIZZ’26 Marathon Run to promote health, fitness,
+            and social awareness.
+
+            With the theme “Run for a Reason,” the marathon encourages
+            participants to support causes related to good health,
+            well-being, and gender equality. The event invites individuals
+            to stay active, spread awareness, and contribute to a meaningful
+            community initiative.
+        </description>
+
+        <rules>
+            <rule>Participants must report to the venue before the start time</rule>
+            <rule>Follow the designated marathon route and instructions from organizers</rule>
+            <rule>Participants should ensure they are medically fit to run</rule>
+            <rule>Maintain discipline and sportsmanship during the event</rule>
+        </rules>
+
+        <date>21 February 2026</date>
+        <time>6:00 AM</time>
+        <Venue>Rajiv Gandhi Stadium</Venue>
+
+    </content>
+</event>
