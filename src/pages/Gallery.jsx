@@ -154,7 +154,7 @@ const GalleryCard = ({
       {/* Hover Overlay */}
       <div
         className="absolute inset-0 z-10
-                   bg-black/80 from-black/90 via-black/70 to-transparent
+                   bg-black/90 from-black/90 via-black/70 to-transparent
                    opacity-0 group-hover:opacity-100
                    transition-opacity duration-500
                    flex items-center justify-center
@@ -162,15 +162,15 @@ const GalleryCard = ({
       >
         <div className="sm:max-h-[80%] sm:overflow-y-auto">
 
-          <h2 className="text-sm sm:text-l font-harry text-bold text-accent">
+          <h2 className="sm:text-sm sm:text-l md:text-5xl font-harry text-bold text-accent md:mb-4">
             {item.eventName}
           </h2>
 
-          <p className="text-xs sm:text-sm text-gray-200">
+          <p className="text-xs md:text-xl text-gray-200 md:mb-1">
             {item.shortDescription}
           </p>
 
-          <p className="text-xs sm:text-sm text-accent">
+          <p className="text-xs sm:text-sm md:text-l md:text-bold text-accent">
             {item.date} {item.time && `| ${item.time}`}
             <br />
             {item.location}
