@@ -20,7 +20,7 @@ const Sponsors = () => {
             />
 
             {/* Hover Overlay */}
-            <div className="inset-0 bg-black/80 
+            <div className="absolute inset-0 bg-black/80 
                             opacity-0 group-hover:opacity-100 
                             transition-opacity duration-500 
                             flex items-center justify-center px-6">

@@ -228,10 +228,10 @@ const Events = () => {
                 )}
 
                 {/* Date / Time / Venue */}
-                <p className="text-gray-400 mb-4">
+                <p className="text-accent mb-4">
                   {selectedEvent.date ? (<span><strong>Date:</strong> {selectedEvent.date}</span>) : null}
-                  {selectedEvent.time ? (<span> &nbsp; <strong>Time:</strong> {selectedEvent.time}</span>) : null}
-                  {selectedEvent.venue ? (<span> &nbsp; <strong>Venue:</strong> {selectedEvent.venue}</span>) : null}
+                  {selectedEvent.time ? (<span> &nbsp; <strong><br></br>Time:</strong> {selectedEvent.time}</span>) : null}
+                  {selectedEvent.venue ? (<span> &nbsp; <strong><br></br>Venue:</strong> {selectedEvent.venue}</span>) : null}
                 </p>
 
                 <p className="text-gray-300 whitespace-pre-line leading-relaxed text-justify">
