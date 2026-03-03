@@ -85,10 +85,6 @@ const Events = () => {
     <section className="text-white py-20 min-h-screen px-6">
       <div className="max-w-4xl mx-auto text-center">
 
-        <h1>
-          Events <span className="text-accent">Brochure</span>
-        </h1>
-
         <Brochure />
 
         <h1>
