@@ -2,7 +2,7 @@
 <event>
     <meta>
         <name>Flash Mob</name>
-        <category>Cultural</category>
+        <category>Internal Event</category>
         <hasRegistration>false</hasRegistration>
         <registrationLink> </registrationLink>
     </meta>
@@ -13,14 +13,9 @@
         </shortDescription>
 
         <description>
-            As part of the annual institute industry interface meet GLOBIZZ’26,
-            the Department of International Business, Pondicherry University,
-            is hosting an energetic Flash Mob event.
+            As part of the annual institute industry interface meet GLOBIZZ’26, the Department of International Business, Pondicherry University, is hosting an energetic Flash Mob event.
 
-            This exciting performance will bring together students for a lively
-            and vibrant celebration of creativity, music, and teamwork. The
-            event aims to build enthusiasm on campus and showcase student
-            talent through a dynamic group performance.
+            This exciting performance will bring together students for a lively and vibrant celebration of creativity, music, and teamwork. The event aims to build enthusiasm on campus and showcase student talent through a dynamic group performance.
         </description>
 
         <rules>

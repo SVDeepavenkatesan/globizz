@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event>
+    <meta>
+        <name>Cricket Tournament</name>
+        <category>Internal Event</category>
+        <hasRegistration>false</hasRegistration>
+        <registrationLink></registrationLink>
+    </meta>
+
+    <content>
+        <shortDescription>
+            An exciting inter-team cricket tournament organized by the Department of International Business with cash prizes and trophies.
+        </shortDescription>
+
+        <description>
+            The Department of International Business, Pondicherry University, presents a Cricket Tournament as part of GLOBIZZ’26 celebrations.
+
+            The tournament invites teams to compete in a thrilling 10-over format match using a red tennis ball. Attractive cash prizes, trophies, and medals await the winners. The event promises competitive spirit, teamwork, and sportsmanship across two action-packed days.
+            
+            First Prize: ₹8000
+            Second Prize: ₹4000
+            Entry Fee: ₹1000 per team
+        </description>
+
+        <rules>
+            <rule>Each match consists of 10 overs</rule>
+            <rule>Powerplay of 3 overs</rule>
+            <rule>Red tennis ball will be used</rule>
+            <rule>Maximum 2 overs per bowler</rule>
+            <rule>Umpire decision is final</rule>
+        </rules>
+
+        <date>07 March 2026 &amp; 08 March 2026</date>
+        <time>7 AM to 6 PM</time>
+        <Venue>Rajiv Gandhi Stadium</Venue>
+
+    </content>
+</event>
