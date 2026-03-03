@@ -43,7 +43,8 @@ const Brochure = () => {
   return (
     <div className="py-12 text-center w-full">
 
-      <h1 className="sm:text-4xl md:text-6xl font-harry text-accent mb-10">
+      <h1 className="sm:text-4xl md:text-6
+      xl font-harry text-accent mb-10">
         Event Brochure
       </h1>
 

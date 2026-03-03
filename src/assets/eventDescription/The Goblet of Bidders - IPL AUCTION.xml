@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event>
+    <meta>
+        <name>The Goblet of Bidders</name>
+        <category>Mystiquity</category>
+        <hasRegistration>true</hasRegistration>
+        <registrationLink>https://docs.google.com/forms/d/e/1FAIpQLScCGDi02sLRmjdTV7OmlovcCQFqEd8YkLB9Fpdhqmi1eELAsw/viewform</registrationLink>
+    </meta>
+
+    <content>
+        <shortDescription>
+             IPL Auction
+        </shortDescription>
+
+        <description>
+            Participants of IPL AUCTION act as franchise owners and team managers who compete to build the best team within a fixed budget through strategic bidding. Team (2–3 Members)
+            Round 1: Quiz related to Auctioning
+            Round 2: IPL Auction
+	    Contact: BALAJI - 8610759728
+        </description>
+
+        <rules>
+            <rule>No mobile phones or internet usage during the auction.</rule>
+            <rule>No discussion or collusion between teams while bidding.</rule>
+            <rule>Bidding must stop immediately once the auctioneer says “Sold”. </rule>
+            <rule>Teams cannot exceed the given budget at any point.</rule>
+
+        </rules>
+
+        <date></date>
+        <time></time>
+        <Venue></Venue>
+
+    </content>
+</event>

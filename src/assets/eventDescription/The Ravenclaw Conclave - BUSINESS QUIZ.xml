@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event>
+    <meta>
+        <name>The Ravenclaw Conclave</name>
+        <category>Mystiquity</category>
+        <hasRegistration>true</hasRegistration>
+        <registrationLink>https://docs.google.com/forms/d/e/1FAIpQLScCGDi02sLRmjdTV7OmlovcCQFqEd8YkLB9Fpdhqmi1eELAsw/viewform</registrationLink>
+    </meta>
+
+    <content>
+        <shortDescription>
+             Business Quiz
+        </shortDescription>
+
+        <description>
+            In this QUIZ Participants will be tested by their knowledge across various business domains such as finance, marketing, economics, entrepreneurship, and current affairs. 
+	    Individual / Team (Max 2)
+            Topic: General Business Knowledge & Aptitude
+            Round 1: MCQ’s - Written
+            Round 2: Visual connect
+            Round 3: Strategy Round
+
+	    Contact: SHAHIL AND NIRMAL - 8608465572
+        </description>
+
+        <rules>
+            <rule>Negative marking for wrong answers</rule>
+            <rule>Strict time limit for each round</rule>
+            <rule>No electronic devices allowed</rule>
+        </rules>
+
+        <date></date>
+        <time></time>
+        <Venue></Venue>
+
+    </content>
+</event>

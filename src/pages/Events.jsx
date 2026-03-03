@@ -5,6 +5,7 @@ import Brochure from "./Brochure";
 const Events = () => {
   const [openSection, setOpenSection] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [mobilePage, setMobilePage] = useState(1);
 
   const toggleSection = (key) => {
     setOpenSection(openSection === key ? null : key);
@@ -34,8 +35,6 @@ const Events = () => {
 
       const name =
         getText(xmlDoc, ["name", "Name"]) || eventName || "Unnamed Event";
-      const category =
-        getText(xmlDoc, ["category", "Category"]) || "Unspecified";
       const hasRegistrationRaw =
         getText(xmlDoc, ["hasRegistration", "HasRegistration"]) || "false";
       const hasRegistration =
@@ -61,7 +60,6 @@ const Events = () => {
 
       setSelectedEvent({
         name,
-        category,
         poster: posterModule.default,
         shortDescription,
         description,
@@ -72,6 +70,8 @@ const Events = () => {
         hasRegistration,
         registrationLink,
       });
+
+      setMobilePage(1);
     } catch (error) {
       console.error("Error loading event:", error);
     }
@@ -79,6 +79,7 @@ const Events = () => {
 
   const closeModal = () => {
     setSelectedEvent(null);
+    setMobilePage(1);
   };
 
   return (
@@ -147,7 +148,7 @@ const Events = () => {
           </div>
         </div>
 
-        {/* ================= INTERNAL EVENTS ================= */}
+        {/* INTERNAL EVENTS */}
         <div className="bg-[#0B1120] border border-accent/30 rounded-2xl p-6 sm:p-8 mb-12 shadow-xl">
 
           <h2 className="text-2xl sm:text-5xl font-harry text-accent mb-8">
@@ -178,7 +179,7 @@ const Events = () => {
           </div>
         </div>
 
-        {/* ================= NOBLE EVENTS ================= */}
+        {/* NOBLE EVENTS */}
         <div className="bg-[#0B1120] border border-accent/30 rounded-2xl p-6 sm:p-8 shadow-xl">
 
           <h2 className="text-2xl sm:text-6xl font-harry text-accent mb-8">
@@ -211,13 +212,16 @@ const Events = () => {
 
       </div>
 
-      {/* MODAL (UNCHANGED) */}
+      {/* ================= MODAL ================= */}
       {selectedEvent && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4 overflow-y-auto">
-          <div className="relative bg-[#0F172A] text-white w-full max-w-5xl max-h-[90vh] rounded-2xl shadow-2xl flex border border-accent/40 animate-fadeIn">
+        <div className="fixed inset-0 backdrop-blur-md flex items-center justify-center z-50 p-4">
+
+          {/* ================= DESKTOP ================= */}
+          <div className="hidden md:flex relative bg-[#0F172A] w-full max-w-5xl max-h-[90vh] rounded-2xl shadow-2xl border border-accent/40">
+
             <button
               onClick={closeModal}
-              className="absolute -top-6 -right-6 bg-accent text-black w-12 h-12 rounded-full text-2xl font-bold shadow-xl hover:rotate-90 transition duration-300"
+              className="absolute -top-6 -right-6 bg-accent text-black w-12 h-12 rounded-full text-2xl font-bold"
             >
               ✕
             </button>
@@ -230,14 +234,14 @@ const Events = () => {
               />
             </div>
 
-            <div className="w-2/3 p-10 flex flex-col justify-between overflow-y-auto">
+            <div className="w-2/3 p-10 overflow-y-auto flex flex-col justify-between">
               <div>
-                <h2 className="text-6xl font-harry text-accent mb-6 text-center">
+                <h2 className="text-5xl font-harry text-accent mb-6 text-center">
                   {selectedEvent.name}
                 </h2>
 
                 {selectedEvent.shortDescription && (
-                  <p className="text-gray-300 whitespace-pre-line leading-relaxed mb-4 text-justify">
+                  <p className="text-gray-300 mb-4">
                     {selectedEvent.shortDescription}
                   </p>
                 )}
@@ -254,16 +258,16 @@ const Events = () => {
                   )}
                 </p>
 
-                <p className="text-gray-300 whitespace-pre-line leading-relaxed text-justify">
+                <p className="text-gray-300 whitespace-pre-line">
                   {selectedEvent.description}
                 </p>
 
-                {selectedEvent.rules && selectedEvent.rules.length > 0 && (
-                  <div className="mt-4 text-left">
-                    <h3 className="text-accent font-harry text-5xl spaced-text mb-2">
+                {selectedEvent.rules.length > 0 && (
+                  <div className="mt-4">
+                    <h3 className="text-accent font-harry text-4xl mb-2">
                       Rules
                     </h3>
-                    <ul className="list-disc text-gray-300 text-justify">
+                    <ul className="list-disc text-gray-300 pl-5">
                       {selectedEvent.rules.map((r, i) => (
                         <li key={i}>{r}</li>
                       ))}
@@ -272,18 +276,126 @@ const Events = () => {
                 )}
               </div>
 
-              <div className="mt-10 text-center">
-                {selectedEvent.hasRegistration && (
+              {selectedEvent.hasRegistration && (
+                <div className="mt-6 text-center">
                   <a
                     href={selectedEvent.registrationLink}
-                    className="bg-accent text-black px-6 py-3 rounded-lg font-semibold hover:scale-105 transition"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-accent text-black px-6 py-3 rounded-lg font-semibold"
                   >
                     Register Now
                   </a>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
+
+          {/* ================= MOBILE BOOK ================= */}
+          <div className="md:hidden">
+
+            {/* Close Button (fixed to screen) */}
+            <button
+              onClick={closeModal}
+              className="fixed top-6 right-6 bg-accent text-black w-10 h-10 rounded-full text-xl font-bold z-50"
+            >
+              ✕
+            </button>
+
+            {/* Left Arrow (Page 2 only) */}
+            {mobilePage === 2 && (
+              <button
+                onClick={() => setMobilePage(1)}
+                className="fixed bottom-8 left-6 text-accent text-3xl font-bold z-50"
+              >
+                ←
+              </button>
+            )}
+
+            {/* Right Arrow (Page 1 only) */}
+            {mobilePage === 1 && (
+              <button
+                onClick={() => setMobilePage(2)}
+                className="fixed bottom-8 right-6 text-accent text-3xl font-bold z-50"
+              >
+                →
+              </button>
+            )}
+
+            {/* Smaller Popup Box */}
+            <div className="relative w-[85%] max-w-xs h-[75vh] mx-auto backdrop-blur rounded-2xl shadow-2xl overflow-hidden items-center justify-center">
+
+              {/* PAGE 1 — POSTER */}
+              {mobilePage === 1 && (
+                <div className="h-full w-full flex items-center justify-center p-4">
+                  <img
+                    src={selectedEvent.poster}
+                    alt={selectedEvent.name}
+                    className="max-h-full object-contain"
+                  />
+                </div>
+              )}
+
+              {/* PAGE 2 — DESCRIPTION */}
+              {mobilePage === 2 && (
+                <div className="h-full w-full overflow-y-auto p-5 text-sm">
+
+                  <h2 className="text-xl font-harry text-accent mb-3 text-center">
+                    {selectedEvent.name}
+                  </h2>
+
+                  {selectedEvent.shortDescription && (
+                    <p className="text-gray-300 mb-3">
+                      {selectedEvent.shortDescription}
+                    </p>
+                  )}
+
+                  <p className="text-accent mb-3">
+                    {selectedEvent.date && (
+                      <span><strong>Date:</strong> {selectedEvent.date}</span>
+                    )}
+                    {selectedEvent.time && (
+                      <span><br /><strong>Time:</strong> {selectedEvent.time}</span>
+                    )}
+                    {selectedEvent.venue && (
+                      <span><br /><strong>Venue:</strong> {selectedEvent.venue}</span>
+                    )}
+                  </p>
+
+                  <p className="text-gray-300 whitespace-pre-line mb-4">
+                    {selectedEvent.description}
+                  </p>
+
+                  {selectedEvent.rules.length > 0 && (
+                    <div className="mb-4">
+                      <h3 className="text-accent font-harry text-lg mb-2">
+                        Rules
+                      </h3>
+                      <ul className="list-disc pl-4 text-gray-300">
+                        {selectedEvent.rules.map((r, i) => (
+                          <li key={i}>{r}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {selectedEvent.hasRegistration && (
+                    <div className="text-center">
+                      <a
+                        href={selectedEvent.registrationLink}
+                        className="bg-accent text-black px-4 py-2 rounded-lg text-sm font-semibold"
+                      >
+                        Register Now
+                      </a>
+                    </div>
+                  )}
+
+                </div>
+              )}
+
+            </div>
+          </div>
+
         </div>
       )}
     </section>

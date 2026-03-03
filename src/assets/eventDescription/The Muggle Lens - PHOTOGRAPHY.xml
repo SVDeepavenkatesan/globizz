@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event>
+    <meta>
+        <name>The Muggle Lens</name>
+        <category>Mystiquity</category>
+        <hasRegistration>true</hasRegistration>
+        <registrationLink>https://docs.google.com/forms/d/e/1FAIpQLScCGDi02sLRmjdTV7OmlovcCQFqEd8YkLB9Fpdhqmi1eELAsw/viewform</registrationLink>
+    </meta>
+
+    <content>
+        <shortDescription>
+            A Photography Event
+        </shortDescription>
+
+        <description>
+            Participants of PHOTOGRAPHY competition are challenged to showcase their talent by presenting photographs based on a given theme. The event aims to highlight originality, technical skills, and the ability to convey powerful messages through images. Topic will be given On-Spot. Only one Round.
+
+	    Contact: BLESSLIN & JAIDEEP - 6381980917
+        </description>
+
+        <rules>
+            <rule>1 original image per participant</rule>
+            <rule>JPEG, max 20MB</rule>
+            <rule>No editing</rule>
+            <rule>No watermark or signature</rule>
+            <rule>While sending images you have to mention your college name, team number, and name of participants</rule>
+            <rule>Individual participation</rule>
+        </rules>
+
+        <date></date>
+        <time></time>
+        <Venue></Venue>
+
+    </content>
+</event>

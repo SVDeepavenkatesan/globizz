@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event>
+    <meta>
+        <name>Hunt for the Horcruxes</name>
+        <category>Mystiquity</category>
+        <hasRegistration>true</hasRegistration>
+        <registrationLink>https://docs.google.com/forms/d/e/1FAIpQLScCGDi02sLRmjdTV7OmlovcCQFqEd8YkLB9Fpdhqmi1eELAsw/viewform</registrationLink>
+    </meta>
+
+    <content>
+        <shortDescription>
+             Tresure Hunt
+        </shortDescription>
+
+        <description>
+            TREASURE HUNT is an exciting team-based game where participants follow a series of clues to reach the final treasure. The event tests participants’ logical thinking, coordination, time management, and teamwork.
+
+	    Contact: UMASHANKAR - 9944845308
+        </description>
+
+        <rules>
+            <rule>Team should consist of exactly 4 members.</rule>
+            <rule>Team members should stay together throughout the event.</rule>
+            <rule>Clues will be given one at a time and must be solved in sequence.</rule>
+            <rule>Teams must not damage, hide, or remove clues placed for other teams.</rule>
+            <rule>Seeking help from outsiders or other teams is strictly prohibited.</rule>
+            <rule>Any form of misconduct, cheating, or rule violation will lead todisqualification.</rule>
+        </rules>
+
+        <date></date>
+        <time></time>
+        <Venue></Venue>
+
+    </content>
+</event>
