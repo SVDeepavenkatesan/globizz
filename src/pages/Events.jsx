@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { eventTree } from "../data/eventsData";
-
+import Brochure from "./Brochure";
 
 const Events = () => {
   const [openSection, setOpenSection] = useState(null);
@@ -102,6 +102,10 @@ const Events = () => {
     <section className="text-white py-20 min-h-screen px-6">
       <div className="max-w-4xl mx-auto text-center">
 
+        <h1>
+          Events <span className="text-accent">Brochure</span>
+        </h1>
+        <Brochure />
         <h1>
           Our <span className="text-accent">Events</span>
         </h1>
