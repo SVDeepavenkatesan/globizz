@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Events>
+
+    <Event>
+        <Topic>Brand Evolution: Marketing in a Data-Driven Consumer Era</Topic>
+
+        <Speakers>
+
+            <speaker>
+                <name>Arul Partha Sarathy</name>
+                <designation>South Zone Sales Manager</designation>
+                <company>boAt</company>
+                <LinkedinURL>https://www.linkedin.com/in/arun-parthasarathy-676b659</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Santhosh Srinivasan</name>
+                <designation>CEO</designation>
+                <company>ChakraView Consultancy</company>
+                <LinkedinURL>https://www.linkedin.com/in/santoshsrinivasan</LinkedinURL>
+            </speaker>
+
+        </Speakers>
+
+        <date>12/03/2026</date>
+        <time>09:30 AM - 11:00 AM</time>
+
+    </Event>
+    <Event>
+        <Topic>Logistics</Topic>
+
+        <Speakers>
+
+            <speaker>
+                <name>Nitin Dewan</name>
+                <designation>CEO</designation>
+                <company>AVN Logistics</company>
+                <LinkedinURL>https://www.linkedin.com/in/santoshsrinivasan</LinkedinURL>
+            </speaker>
+
+        </Speakers>
+
+        <date>12/03/2026</date>
+        <time>11:30 AM - 13:00 PM</time>
+
+    </Event>
+    <Event>
+        <Topic>AI as a Catalyst: Transforming Business &amp; Competitive Advantage</Topic>
+
+        <Speakers>
+
+            <speaker>
+                <name>Bheem Singh</name>
+                <designation>AI Consultant</designation>
+                <company></company>
+                <LinkedinURL></LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Nirmal</name>
+                <designation>AI Consultant</designation>
+                <company></company>
+                <LinkedinURL></LinkedinURL>
+            </speaker>
+
+        </Speakers>
+
+        <date>12/03/2026</date>
+        <time>14:00 PM - 15:30 PM</time>
+
+    </Event>
+    <Event>
+        <Topic>Supply Chain Transformation: Smart &amp; Resilient Operations</Topic>
+
+        <Speakers>
+
+            <speaker>
+                <name>Somesvar</name>
+                <designation></designation>
+                <company>Rukin</company>
+                <LinkedinURL></LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Prince</name>
+                <designation></designation>
+                <company></company>
+                <LinkedinURL></LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Prasanna B S</name>
+                <designation></designation>
+                <company>KPS Shipping</company>
+                <LinkedinURL></LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Maersh</name>
+                <designation></designation>
+                <company></company>
+                <LinkedinURL></LinkedinURL>
+            </speaker>
+
+        </Speakers>
+
+        <date>12/03/2026</date>
+        <time>16:00 PM - 17:40 PM</time>
+
+    </Event>
+</Events>

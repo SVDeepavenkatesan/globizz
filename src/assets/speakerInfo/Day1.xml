@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Events>
+    <Event>
+        <Topic>Redefining Global Business: AI, Innovation &amp; Sustainability</Topic>
+        <Speakers>
+            <speaker>
+                <name>Prof. P. Prakash Babu</name>
+                <designation>Vice Chancellor</designation>
+                <company>Pondicherry University</company>
+                <LinkedinURL></LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Dr. P. Natrajan</name>
+                <designation>Dean</designation>
+                <company>School of Management</company>
+                <LinkedinURL></LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Dr. P. Sridharan</name>
+                <designation>Head Of Department</designation>
+                <company>Department of International Business</company>
+                <LinkedinURL></LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Dr. K Illangovan</name>
+                <designation>Globizz Faculty Coordinator</designation>
+                <company>Department of International Business</company>
+                <LinkedinURL></LinkedinURL>
+            </speaker>    
+        </Speakers>
+        <date>11/03/2026</date>
+        <time>10:00 AM - 11:30 AM</time>
+    </Event>
+    <Event>
+        <Topic>Start-up Frontiers: Innovation, Agility &amp; Scalable Enterprise</Topic>
+
+        <Speakers>
+
+            <speaker>
+                <name>Ravi Ranjan</name>
+                <designation>CEO</designation>
+                <company>Dhobi G</company>
+                <LinkedinURL>https://www.linkedin.com/in/ravi-dhobig</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Vishnu Vardhan</name>
+                <designation>CEO</designation>
+                <company>Atal Incubation PTU</company>
+                <LinkedinURL>https://www.linkedin.com/in/vishnuvaradan/</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Nirmal Chudgar</name>
+                <designation>Co-Founder</designation>
+                <company>Bevolve AI</company>
+                <LinkedinURL>http://linkedin.com/in/nirmalchudgar</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Pinku</name>
+                <designation>CEO</designation>
+                <company>Taxina</company>
+                <LinkedinURL>https://www.linkedin.com/in/pinkubharathi</LinkedinURL>
+            </speaker>
+
+        </Speakers>
+
+        <date>11/03/2026</date>
+        <time>14:00 PM - 15:30 PM</time>
+
+    </Event>
+    <Event>
+        <Topic>Workforce Transformation: Future-Ready &amp; Tech-Enabled Talent</Topic>
+
+        <Speakers>
+
+            <speaker>
+                <name>Asad Rashid</name>
+                <designation></designation>
+                <company>Concentrix</company>
+                <LinkedinURL>https://www.linkedin.com/in/asad-rashid-7b6aa814/</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Anvarasi</name>
+                <designation></designation>
+                <company>Bright Brothers</company>
+                <LinkedinURL></LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Vikram Bojja</name>
+                <designation>CEO</designation>
+                <company>Focused HR</company>
+                <LinkedinURL>https://www.linkedin.com/in/vikrambojja</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Kavita</name>
+                <designation></designation>
+                <company>IBM</company>
+                <LinkedinURL></LinkedinURL>
+            </speaker>
+
+        </Speakers>
+
+        <date>11/03/2026</date>
+        <time>16:00 PM - 17:40 PM</time>
+
+    </Event>
+
+</Events>
