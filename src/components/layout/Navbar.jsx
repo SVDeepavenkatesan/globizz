@@ -1,11 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+
 import ibLogo from "../../assets/logos/IB.jpeg";
 import puLogo from "../../assets/logos/PU.jpg";
 
+import registerQR from "../../assets/images/registerQR.png";
+import paymentQR from "../../assets/images/paymentQR.png";
+
 const Navbar = () => {
   const navRef = useRef(null);
+
   const [isOpen, setIsOpen] = useState(false);
+  const [showQR, setShowQR] = useState(false);
+
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -36,10 +43,11 @@ const Navbar = () => {
 
     updateTimer();
     const interval = setInterval(updateTimer, 1000);
+
     return () => clearInterval(interval);
   }, []);
 
-  // 🔥 Dynamic Navbar Height Sync
+  // Navbar height sync
   useEffect(() => {
     const updateNavHeight = () => {
       if (navRef.current) {
@@ -52,6 +60,7 @@ const Navbar = () => {
 
     updateNavHeight();
     window.addEventListener("resize", updateNavHeight);
+
     return () => window.removeEventListener("resize", updateNavHeight);
   }, []);
 
@@ -62,25 +71,33 @@ const Navbar = () => {
 
   return (
     <>
-      <nav
-        ref={navRef}
-        className="text-white shadow-md relative z-50"
-      >
+      <nav ref={navRef} className="text-white shadow-md relative z-50">
+
         <div className="max-w-7xl mx-auto px-2 md:px-1 py-3 flex items-center justify-between">
 
-          {/* Left Logo + Title */}
+          {/* Left Logo */}
           <div className="flex items-center gap-3">
+
             <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-accent shadow-lg bg-white">
-              <img src={ibLogo} alt="IB Logo" className="h-full w-full object-cover" />
+              <img
+                src={ibLogo}
+                alt="IB Logo"
+                className="h-full w-full object-cover"
+              />
             </div>
 
-            <Link to="/" className="text-4xl md:text-5xl font-harry text-accent">
+            <Link
+              to="/"
+              className="text-4xl md:text-5xl font-harry text-accent"
+            >
               GLOBIZZ
             </Link>
+
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
+
             <NavLink to="/" className={navLinkClass}>Home</NavLink>
             <NavLink to="/about" className={navLinkClass}>About</NavLink>
             <NavLink to="/gallery" className={navLinkClass}>Gallery</NavLink>
@@ -90,15 +107,30 @@ const Navbar = () => {
             <NavLink to="/volunteers" className={navLinkClass}>Volunteers</NavLink>
             <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
 
-            <div className="bg-accent text-black px-4 py-2 rounded-lg text-xs font-semibold">
+            {/* Timer */}
+            <div
+              onClick={() => setShowQR(true)}
+              className="relative cursor-pointer bg-accent text-black px-4 py-2 rounded-lg text-xs font-semibold hover:scale-105 transition"
+            >
               {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+
+              {/* Register Bubble */}
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] bg-black text-accent px-2 py-1 rounded-md whitespace-nowrap animate-pulse">
+                💬 Register Here
+              </div>
             </div>
+
           </div>
 
-          {/* Right Side */}
+          {/* Right Section */}
           <div className="flex items-center gap-4">
+
             <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-accent shadow-lg bg-white">
-              <img src={puLogo} alt="PU Logo" className="h-full w-full object-cover" />
+              <img
+                src={puLogo}
+                alt="PU Logo"
+                className="h-full w-full object-cover"
+              />
             </div>
 
             <button
@@ -107,8 +139,11 @@ const Navbar = () => {
             >
               ☰
             </button>
+
           </div>
+
         </div>
+
       </nav>
 
       {/* Mobile Overlay */}
@@ -117,7 +152,7 @@ const Navbar = () => {
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         onClick={() => setIsOpen(false)}
-      ></div>
+      />
 
       {/* Mobile Sidebar */}
       <div
@@ -125,6 +160,7 @@ const Navbar = () => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
+
         <div className="p-6 flex flex-col h-full">
 
           <button
@@ -135,6 +171,7 @@ const Navbar = () => {
           </button>
 
           <div className="flex flex-col space-y-6 text-lg">
+
             <NavLink to="/" className={navLinkClass} onClick={() => setIsOpen(false)}>Home</NavLink>
             <NavLink to="/about" className={navLinkClass} onClick={() => setIsOpen(false)}>About</NavLink>
             <NavLink to="/gallery" className={navLinkClass} onClick={() => setIsOpen(false)}>Gallery</NavLink>
@@ -143,13 +180,69 @@ const Navbar = () => {
             <NavLink to="/sponsors" className={navLinkClass} onClick={() => setIsOpen(false)}>Sponsors</NavLink>
             <NavLink to="/volunteers" className={navLinkClass} onClick={() => setIsOpen(false)}>Volunteers</NavLink>
             <NavLink to="/contact" className={navLinkClass} onClick={() => setIsOpen(false)}>Contact</NavLink>
+
           </div>
 
-          <div className="mt-auto bg-accent text-black p-4 rounded-lg text-center font-semibold">
+          {/* Mobile Timer */}
+          <div
+            onClick={() => setShowQR(true)}
+            className="mt-auto bg-accent text-black p-4 rounded-lg text-center font-semibold cursor-pointer hover:scale-105 transition"
+          >
             {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
           </div>
+
         </div>
+
       </div>
+
+      {/* QR Popup */}
+      {showQR && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-[100] p-6">
+
+          <div className="relative bg-[#0F172A] rounded-2xl p-8 max-w-3xl w-full border border-accent shadow-2xl">
+
+            <button
+              onClick={() => setShowQR(false)}
+              className="absolute -top-5 -right-5 bg-accent text-black w-10 h-10 rounded-full text-xl font-bold"
+            >
+              ✕
+            </button>
+
+            <h2 className="text-3xl font-harry text-accent mb-8 text-center">
+              Event Registration
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-10 text-center">
+
+              <div>
+                <img
+                  src={registerQR}
+                  alt="Registration QR"
+                  className="mx-auto w-48 h-48 object-contain"
+                />
+                <p className="mt-3 text-gray-300">
+                  Scan to Register
+                </p>
+              </div>
+
+              <div>
+                <img
+                  src={paymentQR}
+                  alt="Payment QR"
+                  className="mx-auto w-48 h-48 object-contain"
+                />
+                <p className="mt-3 text-gray-300">
+                  Scan to Pay
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      )}
+
     </>
   );
 };
