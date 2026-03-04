@@ -59,7 +59,7 @@ const Gallery = () => {
           Event <span className="text-accent">Gallery</span>
         </h1>
 
-        <div className="grid md:grid-cols-2 gap-10 mt-16">
+        <div className="grid md:grid-cols-1 gap-10 mt-16">
           {items.map((item, index) => (
             <GalleryCard
               key={index}
@@ -131,14 +131,14 @@ const GalleryCard = ({
   };
 
   return (
-    <div className="relative group rounded-2xl overflow-hidden shadow-2xl">
+    <div className="relative group rounded-2xl overflow-hidden shadow-2xl mb-10">
 
       {/* Media */}
       {item.type === "video" ? (
         <video
           ref={videoRef}
           src={item.src}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover mb-6"
           loop
           autoPlay
           playsInline
@@ -162,15 +162,15 @@ const GalleryCard = ({
       >
         <div className="sm:max-h-[80%] sm:overflow-y-auto">
 
-          <h2 className="sm:text-sm sm:text-l md:text-5xl font-harry text-bold text-accent md:mb-4">
+          <h2 className="text-2xl md:text-6xl font-harry text-bold text-accent md:mb-4">
             {item.eventName}
           </h2>
 
-          <p className="text-xs md:text-xl text-gray-200 md:mb-1">
+          <p className="text-l md:text-xl text-gray-200 md:mb-2">
             {item.shortDescription}
           </p>
 
-          <p className="text-xs sm:text-sm md:text-l md:text-bold text-accent">
+          <p className="text-l md:text-xl md:text-bold text-accent">
             {item.date} {item.time && `| ${item.time}`}
             <br />
             {item.location}
