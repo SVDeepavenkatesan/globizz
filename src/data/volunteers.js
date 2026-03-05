@@ -1,8 +1,6 @@
 export const volunteersList = [
-  "Time management meet",
-  "Poster Preparation",
-  "Calling out sponsors",
-  "Flash mob Preparation",
-  "Resolution of internal affairs",
-  "Emergency meeting"
+  "Image 1",
+  "Image 2",
+  "Image 3",
+  "Image 4"
 ];
