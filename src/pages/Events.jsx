@@ -139,11 +139,11 @@ const Events = () => {
   return (
 
     <section className="text-white py-20 min-h-screen px-6">
-      <div className="h-full flex items-center justify-center p-4">
+      <div className="w-full flex items-center justify-center p-4">
         <img
           src={eventsPoster}
           alt="List of events"
-          className="w-100 sm:w-60 md:w-100 mb-5 lg:w-64 drop-shadow-lg"
+          className="w-100 sm:w-60 md:w-100 mb-5 lg:w-100 drop-shadow-lg"
         />
       </div>
       <div className="max-w-4xl mx-auto text-center">
