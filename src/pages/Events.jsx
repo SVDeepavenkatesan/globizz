@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { eventTree } from "../data/eventsData";
 import Brochure from "./Brochure";
+import eventsPoster from "../assets/images/Posters/Overall Poster.jpg"
 
 const Events = () => {
 
@@ -138,7 +139,12 @@ const Events = () => {
   return (
 
     <section className="text-white py-20 min-h-screen px-6">
-
+      <div className="h-full flex items-center justify-center p-4">
+        <img
+          src={eventsPoster}
+          className="max-h-full object-contain"
+        />
+      </div>
       <div className="max-w-4xl mx-auto text-center">
 
         <Brochure />
