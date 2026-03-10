@@ -8,7 +8,7 @@ import "react-pdf/dist/Page/TextLayer.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/globizz">
       <App />
     </BrowserRouter>
   </React.StrictMode>

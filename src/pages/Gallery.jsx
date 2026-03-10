@@ -13,7 +13,7 @@ const Gallery = () => {
         galleryItems.map(async (item) => {
           try {
             const mediaModule = await import(
-              `../assets/Gallery/${item.name}.${item.type === "video" ? "mp4" : "jpeg"}`
+              `../assets/Gallery/${item.name}.${item.type === "video" ? "mp4" : "jpg"}`
             );
 
             const xmlModule = await import(
@@ -51,6 +51,9 @@ const Gallery = () => {
     loadGallery();
   }, []);
 
+  const videos = items.filter((i) => i.type === "video");
+  const photos = items.filter((i) => i.type !== "video");
+
   return (
     <section className="text-white py-20 min-h-screen">
       <div className="max-w-6xl mx-auto px-6 text-center">
@@ -59,8 +62,10 @@ const Gallery = () => {
           Event <span className="text-accent">Gallery</span>
         </h1>
 
-        <div className="grid md:grid-cols-1 gap-10 mt-16">
-          {items.map((item, index) => (
+        {/* ================= VIDEOS ================= */}
+
+        <div className="space-y-12 mt-16">
+          {videos.map((item, index) => (
             <GalleryCard
               key={index}
               item={item}
@@ -72,6 +77,31 @@ const Gallery = () => {
             />
           ))}
         </div>
+
+        {/* ================= PHOTO GALLERY ================= */}
+
+        {photos.length > 0 && (
+          <div className="mt-20">
+
+            <h2 className="text-3xl font-harry text-accent mb-10">
+              Photo Gallery
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+              {photos.map((item, index) => (
+                <PhotoCard
+                  key={index}
+                  item={item}
+                  setFullscreenItem={setFullscreenItem}
+                />
+              ))}
+
+            </div>
+
+          </div>
+        )}
+
       </div>
 
       {fullscreenItem && (
@@ -92,34 +122,21 @@ const GalleryCard = ({
   fullscreenItem,
   setFullscreenItem,
 }) => {
+
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
-  const isMuted =
-    fullscreenItem ? true : activeAudioIndex !== index;
+  const isMuted = fullscreenItem ? true : activeAudioIndex !== index;
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = isMuted;
-    }
+    if (videoRef.current) videoRef.current.muted = isMuted;
   }, [isMuted]);
-
-  useEffect(() => {
-    if (!fullscreenItem && videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {});
-      setIsPlaying(true);
-    }
-  }, [fullscreenItem]);
 
   const togglePlay = () => {
     if (!videoRef.current) return;
 
-    if (isPlaying) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
-    }
+    if (isPlaying) videoRef.current.pause();
+    else videoRef.current.play();
 
     setIsPlaying(!isPlaying);
   };
@@ -131,145 +148,100 @@ const GalleryCard = ({
   };
 
   return (
-    <div className="relative group rounded-2xl overflow-hidden shadow-2xl mb-10">
+    <div className="relative group rounded-2xl overflow-hidden shadow-2xl">
 
-      {/* Media */}
-      {item.type === "video" ? (
-        <video
-          ref={videoRef}
-          src={item.src}
-          className="w-full h-full object-cover mb-6"
-          loop
-          autoPlay
-          playsInline
-        />
-      ) : (
-        <img
-          src={item.src}
-          alt={item.eventName}
-          className="w-full h-full object-cover"
-        />
-      )}
+      <video
+        ref={videoRef}
+        src={item.src}
+        className="w-full object-cover"
+        loop
+        autoPlay
+        playsInline
+      />
 
-      {/* Hover Overlay */}
-      <div
-        className="absolute inset-0 z-10
-                   bg-black/90 from-black/90 via-black/70 to-transparent
-                   opacity-0 group-hover:opacity-100
-                   transition-opacity duration-500
-                   flex items-center justify-center
-                   px-4 sm:px-6 text-center"
-      >
-        <div className="sm:max-h-[80%] sm:overflow-y-auto">
+      {/* Overlay */}
 
-          <h2 className="text-2xl md:text-6xl font-harry text-bold text-accent md:mb-4">
+      <div className="backdrop-blur-md  absolute inset-0 z-10 bg-black/80 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-center px-6">
+
+        <div>
+          <h2 className="text-3xl md:text-6xl font-harry text-accent mb-4">
             {item.eventName}
           </h2>
 
-          <p className="text-l md:text-xl text-gray-200 md:mb-2">
+          <p className="text-gray-200 mb-2">
             {item.shortDescription}
           </p>
 
-          <p className="text-l md:text-xl md:text-bold text-accent">
+          <p className="text-accent">
             {item.date} {item.time && `| ${item.time}`}
             <br />
             {item.location}
           </p>
-
         </div>
+
       </div>
 
       {/* Controls */}
-      <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-20 flex gap-2 sm:gap-3">
 
-        {item.type === "video" && (
-          <>
-            <button
-              onClick={togglePlay}
-              className="bg-accent text-black p-2 sm:p-3 rounded-full"
-            >
-              {isPlaying ? <Pause size={16} /> : <Play size={16} />}
-            </button>
-
-            <button
-              onClick={toggleMute}
-              className="bg-white text-black p-2 sm:p-3 rounded-full"
-            >
-              {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
-            </button>
-          </>
-        )}
+      <div className="absolute bottom-4 right-4 z-20 flex gap-3">
 
         <button
-          onClick={() => {
-            if (videoRef.current) {
-              videoRef.current.pause();
-              videoRef.current.muted = true;
-            }
-            setFullscreenItem({ ...item, index });
-          }}
-          className="bg-black text-white p-2 sm:p-3 rounded-full"
+          onClick={togglePlay}
+          className="bg-accent text-black p-3 rounded-full"
         >
-          <Maximize size={16} />
+          {isPlaying ? <Pause size={18} /> : <Play size={18} />}
+        </button>
+
+        <button
+          onClick={toggleMute}
+          className="bg-white text-black p-3 rounded-full"
+        >
+          {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+        </button>
+
+        <button
+          onClick={() => setFullscreenItem(item)}
+          className="bg-black text-white p-3 rounded-full"
+        >
+          <Maximize size={18} />
         </button>
 
       </div>
+
+    </div>
+  );
+};
+
+const PhotoCard = ({ item, setFullscreenItem }) => {
+
+  return (
+    <div className="relative group rounded-xl overflow-hidden shadow-xl">
+
+      <img
+        src={item.src}
+        alt={item.eventName}
+        className="w-full h-72 object-cover"
+      />
+
+      <button
+        onClick={() => setFullscreenItem(item)}
+        className="absolute bottom-3 right-3 bg-black text-white p-2 rounded-full"
+      >
+        <Maximize size={18} />
+      </button>
+
     </div>
   );
 };
 
 const FullscreenModal = ({ item, setFullscreenItem }) => {
-  const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(false);
 
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = false;
-      videoRef.current.play().catch(() => {});
-    }
-
-    const esc = (e) => {
-      if (e.key === "Escape") {
-        closeModal();
-      }
-    };
-
-    window.addEventListener("keydown", esc);
-    return () => window.removeEventListener("keydown", esc);
-  }, []);
-
-  const closeModal = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
-    setFullscreenItem(null);
-  };
-
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-
-    if (isPlaying) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
-    }
-
-    setIsPlaying(!isPlaying);
-  };
-
-  const toggleMute = () => {
-    if (!videoRef.current) return;
-
-    const newMuted = !isMuted;
-    videoRef.current.muted = newMuted;
-    setIsMuted(newMuted);
-  };
+  const closeModal = () => setFullscreenItem(null);
 
   return (
-    <div className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-50 p-6">
+    <div className="backdrop-blur-md fixed inset-0 flex items-center justify-center z-50 p-6">
 
-      <div className="relative w-full max-w-5xl max-h-[90vh]">
+      <div className="relative w-full max-w-6xl">
 
         <button
           onClick={closeModal}
@@ -278,46 +250,27 @@ const FullscreenModal = ({ item, setFullscreenItem }) => {
           ✕
         </button>
 
-        <div className="bg-black rounded-2xl overflow-hidden relative">
+        <div className="rounded-2xl overflow-hidden">
 
           {item.type === "video" ? (
             <video
-              ref={videoRef}
               src={item.src}
-              className="w-full max-h-[80vh] object-contain"
-              loop
-              playsInline
+              className="w-full max-h-[85vh] object-contain"
+              controls
+              autoPlay
             />
           ) : (
             <img
               src={item.src}
               alt={item.eventName}
-              className="w-full max-h-[80vh] object-contain"
+              className="w-full max-h-[85vh] object-contain"
             />
           )}
 
-          {item.type === "video" && (
-            <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 flex gap-3 sm:gap-4">
-
-              <button
-                onClick={togglePlay}
-                className="bg-accent text-black p-3 sm:p-4 rounded-full"
-              >
-                {isPlaying ? <Pause size={18} /> : <Play size={18} />}
-              </button>
-
-              <button
-                onClick={toggleMute}
-                className="bg-white text-black p-3 sm:p-4 rounded-full"
-              >
-                {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-              </button>
-
-            </div>
-          )}
-
         </div>
+
       </div>
+
     </div>
   );
 };
