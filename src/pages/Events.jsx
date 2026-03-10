@@ -143,7 +143,7 @@ const Events = () => {
         <img
           src={eventsPoster}
           alt="List of events"
-          className="w-100 sm:w-60 md:w-100 mb-5 lg:w-100 drop-shadow-lg"
+          className="w-full max-w-4xl mb-5 drop-shadow-lg"
         />
       </div>
       <div className="max-w-4xl mx-auto text-center">
