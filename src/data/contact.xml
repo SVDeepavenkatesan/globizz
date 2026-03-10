@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContactInfo>
+
+    <section>
+        <title>Head of the Department</title>
+
+        <person>
+            <name>Prof. P. Sridharan</name>
+            <designation>The Head of the Department</designation>
+            <department>Department of International Business</department>
+            <school>School of Management</school>
+            <university>Pondicherry University</university>
+            <location>Kalapet, Puducherry</location>
+            <phone>9894023571</phone>
+        </person>
+
+    </section>
+
+    <section>
+        <title>Faculty Coordinator</title>
+
+        <person>
+            <name>Dr. K. Ilangovan</name>
+            <designation>Assistant Professor</designation>
+            <department>Department of International Business</department>
+            <school>School of Management</school>
+            <university>Pondicherry University</university>
+            <location>Kalapet, Puducherry</location>
+            <phone>8122632460</phone>
+        </person>
+
+    </section>
+
+    <section>
+        <title>Student Coordinators</title>
+
+        <person>
+            <name>Barath A</name>
+            <phone>9791554780</phone>
+        </person>
+
+        <person>
+            <name>Abalesh Debbarma</name>
+            <phone>9612479699</phone>
+        </person>
+
+        <person>
+            <name>Mohitraj S</name>
+            <phone>8248828694</phone>
+        </person>
+
+        <person>
+            <name>Ameena Sulthana</name>
+            <phone>9207984983</phone>
+        </person>
+
+    </section>
+
+</ContactInfo>
