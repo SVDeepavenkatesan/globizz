@@ -142,7 +142,8 @@ const Events = () => {
       <div className="h-full flex items-center justify-center p-4">
         <img
           src={eventsPoster}
-          className="max-h-full object-contain"
+          alt="List of events"
+          className="w-32 sm:w-40 md:w-56 mb-5 lg:w-64 drop-shadow-lg"
         />
       </div>
       <div className="max-w-4xl mx-auto text-center">
