@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { eventTree } from "../data/eventsData";
 import Brochure from "./Brochure";
-import eventsPoster from "../assets/images/Posters/Overall Poster.jpg"
+import eventsPoster from "../assets/images/Posters/Overall Poster.jpeg"
 
 const Events = () => {
 
