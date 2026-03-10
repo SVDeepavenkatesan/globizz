@@ -9,6 +9,11 @@ export const galleryItems = [
   }
 ,
   {
+    name: "Promo",
+    type: "video"
+  }
+,
+  {
     name: "Badmiton organizers and players",
     type: "image"
   }
@@ -55,7 +60,7 @@ export const galleryItems = [
 ,
   {
     name: "Player of the tournamnet",
-    type: "img"
+    type: "image"
   }
 ,
   {
