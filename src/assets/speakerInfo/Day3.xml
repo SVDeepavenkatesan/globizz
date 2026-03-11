@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Events>
+     <Event>
+        <Topic>VALEDICTORY SESSION</Topic>
+
+        <Speakers>
+
+            <speaker>
+                <name>Prof. P. Sridharan</name>
+                <designation>Professor &amp; Head</designation>
+                <company>Department of International Business</company>
+                <LinkedinURL>Welcome Address</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Dr. K. Ilagovan</name>
+                <designation>Assistant Professor</designation>
+                <company>Department of International Business</company>
+                <LinkedinURL>Globizz 26 Event Report</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Prof. P. Natarajan</name>
+                <designation>Dean</designation>
+                <company>School of Management</company>
+                <LinkedinURL>Dean Address</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Prof. P. Prakash Babu</name>
+                <designation>Vice Chancellor</designation>
+                <company>Pondicherry University</company>
+                <LinkedinURL>Presidential Address</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>K. Rajasekhar Reddy</name>
+                <designation>Airport Director</designation>
+                <company>Airports Authority of India</company>
+                <LinkedinURL>Felicitation Address</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Mananathan Rajupillai</name>
+                <designation>Chairman</designation>
+                <company>Manatech Group</company>
+                <LinkedinURL>Valedictory Address</LinkedinURL>
+            </speaker>
+
+        </Speakers>
+
+        <date>13/03/2026</date>
+        <time>04:00 PM - 05:30 PM</time>
+
+    </Event>
+
+</Events>

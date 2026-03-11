@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Events>
 
+    
+
     <Event>
-        <Topic>Brand Evolution: Marketing in a Data-Driven Consumer Era</Topic>
+        <Topic>Marketing Intelligence: Data, Disruption &amp; Digital Dominance</Topic>
 
         <Speakers>
 
             <speaker>
-                <name>Arul Partha Sarathy</name>
-                <designation>South Zone Sales Manager</designation>
-                <company>boAt</company>
-                <LinkedinURL>https://www.linkedin.com/in/arun-parthasarathy-676b659</LinkedinURL>
+                <name>Santhosh Srinivasan</name>
+                <designation>Founder &amp; CEO</designation>
+                <company>ChakraView Consulting</company>
+                <LinkedinURL>Marketing Session Speaker</LinkedinURL>
             </speaker>
 
             <speaker>
-                <name>Santhosh Srinivasan</name>
-                <designation>CEO</designation>
-                <company>ChakraView Consultancy</company>
-                <LinkedinURL>https://www.linkedin.com/in/santoshsrinivasan</LinkedinURL>
+                <name>Feroz Khan</name>
+                <designation>Founder &amp; Business Head</designation>
+                <company>Crowd9</company>
+                <LinkedinURL>Marketing Session Speaker</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Kameswaran Swaminathan</name>
+                <designation>Founder</designation>
+                <company>Punal Legacy Labs Pvt Ltd</company>
+                <LinkedinURL>Marketing Session Speaker</LinkedinURL>
             </speaker>
 
         </Speakers>
@@ -26,86 +35,134 @@
         <time>09:30 AM - 11:00 AM</time>
 
     </Event>
+
+
     <Event>
-        <Topic>Logistics</Topic>
+        <Topic>Rewiring Global Logistics Through the Architecture of Trade and CFS</Topic>
 
         <Speakers>
 
             <speaker>
                 <name>Nitin Dewan</name>
-                <designation>CEO</designation>
-                <company>AVN Logistics</company>
-                <LinkedinURL>https://www.linkedin.com/in/santoshsrinivasan</LinkedinURL>
+                <designation>Chief Executive</designation>
+                <company>AVN Logistics Solutions</company>
+                <LinkedinURL>Logistics Session Speaker</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Mukund Vishvkarma</name>
+                <designation>AGM – CFS</designation>
+                <company>MSA Global Logistics Pvt Ltd</company>
+                <LinkedinURL>Logistics Session Speaker</LinkedinURL>
             </speaker>
 
         </Speakers>
 
         <date>12/03/2026</date>
-        <time>11:30 AM - 13:00 PM</time>
+        <time>11:30 AM - 01:00 PM</time>
 
     </Event>
+
+
     <Event>
         <Topic>AI as a Catalyst: Transforming Business &amp; Competitive Advantage</Topic>
 
         <Speakers>
 
             <speaker>
-                <name>Bheem Singh</name>
+                <name>Bheem Singh Rahangdale</name>
                 <designation>AI Consultant</designation>
-                <company></company>
-                <LinkedinURL></LinkedinURL>
+                <company>Independent</company>
+                <LinkedinURL>AI Session Speaker</LinkedinURL>
             </speaker>
 
             <speaker>
-                <name>Nirmal</name>
-                <designation>AI Consultant</designation>
-                <company></company>
-                <LinkedinURL></LinkedinURL>
+                <name>Krishnan Sethuraman</name>
+                <designation>CTO</designation>
+                <company>AxionTech</company>
+                <LinkedinURL>AI Session Speaker</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Rahul Palekar</name>
+                <designation>Senior Impact Catalyst</designation>
+                <company>Bevolve AI</company>
+                <LinkedinURL>AI Session Speaker</LinkedinURL>
             </speaker>
 
         </Speakers>
 
         <date>12/03/2026</date>
-        <time>14:00 PM - 15:30 PM</time>
+        <time>02:00 PM - 03:00 PM</time>
 
     </Event>
+
+
     <Event>
         <Topic>Supply Chain Transformation: Smart &amp; Resilient Operations</Topic>
 
         <Speakers>
 
             <speaker>
-                <name>Somesvar</name>
-                <designation></designation>
-                <company>Rukin</company>
-                <LinkedinURL></LinkedinURL>
+                <name>Somesvar V</name>
+                <designation>CEO</designation>
+                <company>KRK Global Transport &amp; Logistics</company>
+                <LinkedinURL>Logistics Panel Speaker</LinkedinURL>
             </speaker>
 
             <speaker>
-                <name>Prince</name>
-                <designation></designation>
-                <company></company>
-                <LinkedinURL></LinkedinURL>
+                <name>Prince Lazarus</name>
+                <designation>Logistics Consultant</designation>
+                <company>Confederation of Indian Industry</company>
+                <LinkedinURL>Logistics Panel Speaker</LinkedinURL>
             </speaker>
 
             <speaker>
                 <name>Prasanna B S</name>
-                <designation></designation>
+                <designation>Managing Director</designation>
                 <company>KPS Shipping</company>
-                <LinkedinURL></LinkedinURL>
+                <LinkedinURL>Logistics Panel Speaker</LinkedinURL>
             </speaker>
 
             <speaker>
-                <name>Maersh</name>
-                <designation></designation>
-                <company></company>
-                <LinkedinURL></LinkedinURL>
+                <name>Neil Cloney</name>
+                <designation>Business Development Manager</designation>
+                <company>Macnels Container Lines Pvt Ltd</company>
+                <LinkedinURL>Logistics Panel Speaker</LinkedinURL>
             </speaker>
 
         </Speakers>
 
         <date>12/03/2026</date>
-        <time>16:00 PM - 17:40 PM</time>
+        <time>03:00 PM - 04:30 PM</time>
 
     </Event>
+
+
+    <Event>
+        <Topic>Trade Deals / Tariff Impact on Global Economy</Topic>
+
+        <Speakers>
+
+            <speaker>
+                <name>Abhilasha</name>
+                <designation>Director</designation>
+                <company>Reserve Bank of India</company>
+                <LinkedinURL>Finance Panel Speaker</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Sabarish Jayesh Kumar</name>
+                <designation>Managing Partner</designation>
+                <company>Grinders &amp; Blasters</company>
+                <LinkedinURL>Finance Panel Speaker</LinkedinURL>
+            </speaker>
+
+        </Speakers>
+
+        <date>12/03/2026</date>
+        <time>05:00 PM - 06:00 PM</time>
+
+    </Event>
+
 </Events>

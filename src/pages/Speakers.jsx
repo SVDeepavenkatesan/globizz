@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import day1XML from "../assets/speakerInfo/Day1.xml?raw";
 import day2XML from "../assets/speakerInfo/Day2.xml?raw";
-
+import day3XML from "../assets/speakerInfo/Day3.xml?raw";
 const Speakers = () => {
 
   const [days, setDays] = useState({});
@@ -37,8 +37,6 @@ const Speakers = () => {
             sp.getElementsByTagName("designation")[0]?.textContent || "",
           company:
             sp.getElementsByTagName("company")[0]?.textContent || "",
-          linkedin:
-            sp.getElementsByTagName("LinkedinURL")[0]?.textContent || "",
         }));
 
         return {
@@ -53,6 +51,7 @@ const Speakers = () => {
     setDays({
       day1: parseXML(day1XML),
       day2: parseXML(day2XML),
+      day3: parseXML(day3XML),
     });
 
   }, []);
@@ -102,6 +101,16 @@ const Speakers = () => {
             Day 2
           </button>
 
+          <button
+            onClick={() => changeDay("day3")}
+            className={`px-8 py-3 rounded-lg border transition ${
+              activeDay === "day3"
+                ? "bg-accent text-black border-accent"
+                : "border-accent text-accent hover:bg-accent hover:text-black"
+            }`}
+          >
+            Day 2
+          </button>
         </div>
 
         {/* Animated Container */}
@@ -153,17 +162,6 @@ const Speakers = () => {
                       <p className="text-gray-400 mb-4">
                         {sp.company}
                       </p>
-                    )}
-
-                    {sp.linkedin && (
-                      <a
-                        href={sp.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block bg-accent text-black px-4 py-2 rounded-lg font-semibold hover:scale-105 transition"
-                      >
-                        LinkedIn
-                      </a>
                     )}
 
                   </div>

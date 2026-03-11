@@ -1,116 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Events>
+
     <Event>
-        <Topic>Redefining Global Business: AI, Innovation &amp; Sustainability</Topic>
+        <Topic>INAUGURAL SESSION</Topic>
         <Speakers>
+
             <speaker>
-                <name>Prof. P. Prakash Babu</name>
-                <designation>Vice Chancellor</designation>
-                <company>Pondicherry University</company>
-                <LinkedinURL></LinkedinURL>
+                <name>Prof. P Sridharan</name>
+                <designation>Head of the Department</designation>
+                <company>Department of International Business</company>
+                <LinkedinURL>Welcome Address</LinkedinURL>
             </speaker>
 
             <speaker>
-                <name>Dr. P. Natrajan</name>
+                <name>Dr. K Ilangovan</name>
+                <designation>Assistant Professor</designation>
+                <company>Department of International Business</company>
+                <LinkedinURL>Scope of Globizz</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Prof. P. Natarajan</name>
                 <designation>Dean</designation>
-                <company>School of Management</company>
-                <LinkedinURL></LinkedinURL>
+                <company>School of Management, Pondicherry University</company>
+                <LinkedinURL>Dean's Address</LinkedinURL>
             </speaker>
 
             <speaker>
-                <name>Dr. P. Sridharan</name>
-                <designation>Head Of Department</designation>
-                <company>Department of International Business</company>
-                <LinkedinURL></LinkedinURL>
+                <name>Prof. K. Tharanikkarasu</name>
+                <designation>Director (SEI&amp;RR)</designation>
+                <company>Pondicherry University</company>
+                <LinkedinURL>Presidential Address</LinkedinURL>
             </speaker>
 
             <speaker>
-                <name>Dr. K Illangovan</name>
-                <designation>Globizz Faculty Coordinator</designation>
-                <company>Department of International Business</company>
-                <LinkedinURL></LinkedinURL>
-            </speaker>    
+                <name>K. Saravana Kumar</name>
+                <designation>Consul General</designation>
+                <company>Consulate General of Malaysia</company>
+                <LinkedinURL>Special Address</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Banavath Punnam Kumar</name>
+                <designation>Joint DGFT</designation>
+                <company>Deputy Director General of Foreign Trade</company>
+                <LinkedinURL>Keynote Address</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Dr. C K Ashok Kumar</name>
+                <designation>Founder</designation>
+                <company>First World Community</company>
+                <LinkedinURL>Felicitation Address</LinkedinURL>
+            </speaker>
+
         </Speakers>
         <date>11/03/2026</date>
         <time>10:00 AM - 11:30 AM</time>
     </Event>
+
+
+    <Event>
+        <Topic>Export &amp; Import Risks in Geopolitical Wars</Topic>
+
+        <Speakers>
+
+            <speaker>
+                <name>Banavath Punnam Kumar</name>
+                <designation>Joint DGFT</designation>
+                <company>Deputy Director General of Foreign Trade</company>
+                <LinkedinURL>International Trade Session Speaker</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>S. Selvanayagi</name>
+                <designation>Joint Director</designation>
+                <company>Federation of Indian Export Organisations</company>
+                <LinkedinURL>International Trade Session Speaker</LinkedinURL>
+            </speaker>
+
+        </Speakers>
+
+        <date>11/03/2026</date>
+        <time>12:00 PM - 01:00 PM</time>
+
+    </Event>
+
+
     <Event>
         <Topic>Start-up Frontiers: Innovation, Agility &amp; Scalable Enterprise</Topic>
 
         <Speakers>
 
             <speaker>
+                <name>Amit Nain</name>
+                <designation>Deputy General Manager</designation>
+                <company>MSME Technology Centre</company>
+                <LinkedinURL>Entrepreneurship Panel Speaker</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Pinku Bharathi</name>
+                <designation>CEO</designation>
+                <company>Taxina Mobility Pvt Ltd</company>
+                <LinkedinURL>Entrepreneurship Panel Speaker</LinkedinURL>
+            </speaker>
+
+            <speaker>
                 <name>Ravi Ranjan</name>
                 <designation>CEO</designation>
                 <company>Dhobi G</company>
-                <LinkedinURL>https://www.linkedin.com/in/ravi-dhobig</LinkedinURL>
+                <LinkedinURL>Entrepreneurship Panel Speaker</LinkedinURL>
             </speaker>
 
             <speaker>
                 <name>Vishnu Vardhan</name>
                 <designation>CEO</designation>
-                <company>Atal Incubation PTU</company>
-                <LinkedinURL>https://www.linkedin.com/in/vishnuvaradan/</LinkedinURL>
-            </speaker>
-
-            <speaker>
-                <name>Nirmal Chudgar</name>
-                <designation>Co-Founder</designation>
-                <company>Bevolve AI</company>
-                <LinkedinURL>http://linkedin.com/in/nirmalchudgar</LinkedinURL>
-            </speaker>
-
-            <speaker>
-                <name>Pinku</name>
-                <designation>CEO</designation>
-                <company>Taxina</company>
-                <LinkedinURL>https://www.linkedin.com/in/pinkubharathi</LinkedinURL>
+                <company>ATAL Incubation PTU</company>
+                <LinkedinURL>Moderator</LinkedinURL>
             </speaker>
 
         </Speakers>
 
         <date>11/03/2026</date>
-        <time>14:00 PM - 15:30 PM</time>
+        <time>02:00 PM - 03:30 PM</time>
 
     </Event>
+
+
     <Event>
         <Topic>Workforce Transformation: Future-Ready &amp; Tech-Enabled Talent</Topic>
 
         <Speakers>
 
             <speaker>
-                <name>Asad Rashid</name>
-                <designation></designation>
-                <company>Concentrix</company>
-                <LinkedinURL>https://www.linkedin.com/in/asad-rashid-7b6aa814/</LinkedinURL>
-            </speaker>
-
-            <speaker>
-                <name>Anvarasi</name>
-                <designation></designation>
-                <company>Bright Brothers</company>
-                <LinkedinURL></LinkedinURL>
-            </speaker>
-
-            <speaker>
-                <name>Vikram Bojja</name>
+                <name>Bojja Vikram Reddy</name>
                 <designation>CEO</designation>
                 <company>Focused HR</company>
-                <LinkedinURL>https://www.linkedin.com/in/vikrambojja</LinkedinURL>
+                <LinkedinURL>HR Panel Speaker</LinkedinURL>
             </speaker>
 
             <speaker>
-                <name>Kavita</name>
-                <designation></designation>
-                <company>IBM</company>
-                <LinkedinURL></LinkedinURL>
+                <name>Asad Rashid</name>
+                <designation>Location Head</designation>
+                <company>Concentrix</company>
+                <LinkedinURL>HR Panel Speaker</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Buvaneshwari G</name>
+                <designation>Manager HR Admin</designation>
+                <company>Aurobindo Society</company>
+                <LinkedinURL>HR Panel Speaker</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Vatsala Devi Subramanian</name>
+                <designation>HR Manager</designation>
+                <company>PlanetRead</company>
+                <LinkedinURL>HR Panel Speaker</LinkedinURL>
+            </speaker>
+
+            <speaker>
+                <name>Viswanathan Rajendran</name>
+                <designation>Launch2Us</designation>
+                <company>Avaikalam Co-Working</company>
+                <LinkedinURL>Moderator</LinkedinURL>
             </speaker>
 
         </Speakers>
 
         <date>11/03/2026</date>
-        <time>16:00 PM - 17:40 PM</time>
+        <time>04:00 PM - 05:40 PM</time>
 
     </Event>
-
 </Events>
+
+   
